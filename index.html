@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html manifest="cache.manifest">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Anne Cheylus (CNRS) : code" />
+  <meta name="author" content="Eric Chabanat (UCBL) : test adaptation" />
+  <meta name="author" content="Aurore Curie (HCL/UCBL) : principal investigator" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <title>Brixton modif</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="apple-touch-icon.png">
+  <link rel="stylesheet" media="screen" href="../Style.css" type="text/css" />
+  <script type="text/javascript" src="BrixtonModif.js"> </script>
+</head>
+<body>
+  <div id="testscreen">
+    <h1 id="title" hidden>Brixton Modifié</h1>
+    <svg viewBox="0 0 800 600">
+      <g>
+        <circle id="c0" cx="100" cy="300" r="30" fill="black" stroke="black"/>
+        <circle id="c1" cx="130" cy="192" r="30" fill="white" stroke="black"/>
+        <circle id="c2" cx="213" cy="105" r="30" fill="white" stroke="black"/>
+        <circle id="c3" cx="333" cy="56" r="30" fill="white" stroke="black"/>
+        <circle id="c4" cx="467" cy="56" r="30" fill="white" stroke="black"/>
+        <circle id="c5" cx="587" cy="105" r="30" fill="white" stroke="black"/>
+        <circle id="c6" cx="670" cy="192" r="30" fill="white" stroke="black"/>
+        <circle id="c7" cx="700" cy="300" r="30" fill="white" stroke="black"/>
+        <circle id="c8" cx="670" cy="408" r="30" fill="white" stroke="black"/>
+        <circle id="c9" cx="587" cy="495" r="30" fill="white" stroke="black"/>
+        <circle id="c10" cx="467" cy="544" r="30" fill="white" stroke="black"/>
+        <circle id="c11" cx="333" cy="544" r="30" fill="white" stroke="black"/>
+        <circle id="c12" cx="213" cy="495" r="30" fill="white" stroke="black"/>
+        <circle id="c13" cx="130" cy="408" r="30" fill="white" stroke="black"/>
+        <animateTransform id="bad"
+                          attributeName="transform"
+                          attributeType="XML"
+                          type="scale"
+                          from="1"
+                          to="0.99"
+                          dur="0.1s"
+                          begin = "indefinite"
+                          repeatCount="1"/>
+      </g>
+    </svg>
+  </div>
+  <div id="endscreen" hidden>
+    <h2>Résultats</h2>
+    <a href="data:text/plain;charset=utf-8,%EF%BB%BF" id="allCSV" download="testdata.csv" class="btnlink">
+      Enregistrer</a>
+    <a id="nextsuj" href="index.html" class="btnlink">Nouveau test</a>
+    <h2 id="score">Score : </h2>
+    <svg
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:cc="http://creativecommons.org/ns#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         viewBox="0 0 800 400"
+         width="800"
+         height="400">
+        <metadata>
+          <rdf:RDF>
+            <cc:Work
+               rdf:about="">
+              <dc:format>image/svg+xml</dc:format>
+              <dc:type
+                 rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+              <dc:title>Résultats MatriX</dc:title>
+              <dc:source>https://dx.doi.org/10.1371/journal.pone.0149717</dc:source>
+              <cc:license
+                 rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+              <dc:date>2021-05-25</dc:date>
+              <dc:creator>
+                <cc:Agent>
+                  <dc:title>Anne Cheylus</dc:title>
+                </cc:Agent>
+              </dc:creator>
+            </cc:Work>
+            <cc:License
+               rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+              <cc:permits
+                 rdf:resource="http://creativecommons.org/ns#Reproduction" />
+              <cc:permits
+                 rdf:resource="http://creativecommons.org/ns#Distribution" />
+              <cc:requires
+                 rdf:resource="http://creativecommons.org/ns#Notice" />
+              <cc:requires
+                 rdf:resource="http://creativecommons.org/ns#Attribution" />
+              <cc:permits
+                 rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+              <cc:requires
+                 rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+            </cc:License>
+          </rdf:RDF>
+        </metadata>
+        <style>
+          .axistext { font: 8px sans-serif; fill: black; stroke:none;}
+          .axislabel { font: 10px sans-serif; fill: black; stroke:none;}
+          .valinfo   { font: 14px sans-serif; fill: black; stroke:none;}
+          .refbox { opacity:5%;stroke:none;}
+        </style>
+        <defs>
+          <path id="hline" d="M 55 344 h 330" stroke-dasharray="0.01"/>
+        </defs>
+        <!-- Error rate : ypx = 344 - 4.83 * y ; xpx = 55 + 66 * x -->
+        <g id="error_rate"  stroke-width="0.5" stroke="black">
+          <path id="yaxis_er" d="M 55 391 v -362" /> 
+          <text class="axislabel" x="30" y="220" transform="rotate(-90,30,220)"> Error rate (%)</text>
+          <text class="axislabel" x="220" y="370" text-anchor="middle"> repetition</text>
+          <path id="xaxis_er" d="M 55 344 h 330" />                     <text class="axistext" x="40" y="344">     0</text>
+          <path id="y5_er"  d="M55 319.85 h 330" stroke-dasharray="1"/> <text class="axistext" x="40" y="319.85">  5</text>
+          <path id="y10_er" d="M55 295.7 h 330"  stroke-dasharray="1"/> <text class="axistext" x="40" y="295.7">  10</text>
+          <path id="y15_er" d="M55 271.55 h 330" stroke-dasharray="1"/> <text class="axistext" x="40" y="271.55"> 15</text>
+          <path id="y20_er" d="M55 247.4 h 330"  stroke-dasharray="1"/> <text class="axistext" x="40" y="247.4">  20</text>
+          <path id="y25_er" d="M55 223.25 h 330" stroke-dasharray="1"/> <text class="axistext" x="40" y="223.25"> 25</text>
+          <path id="y30_er" d="M55 199.1 h 330"  stroke-dasharray="1"/> <text class="axistext" x="40" y="199.1">  30</text>
+          <path id="y35_er" d="M55 174.95 h 330" stroke-dasharray="1"/> <text class="axistext" x="40" y="174.95"> 35</text>
+          <path id="y40_er" d="M55 150.8 h 330"  stroke-dasharray="1"/> <text class="axistext" x="40" y="150.8">  40</text>
+          <path id="y45_er" d="M55 126.65 h 330" stroke-dasharray="1"/> <text class="axistext" x="40" y="126.65"> 45</text>
+          <path id="y50_er" d="M55 102.5 h 330"  stroke-dasharray="1"/> <text class="axistext" x="40" y="102.5">  50</text>
+          <path id="y55_er" d="M55 78.35 h 330"  stroke-dasharray="1"/> <text class="axistext" x="40" y="78.35">  55</text>
+          <path id="y60_er" d="M55 54.2 h 330"   stroke-dasharray="1"/> <text class="axistext" x="40" y="54.2">   60</text>
+          <path id="y65_er" d="M55 30.05 h 330"  stroke-dasharray="1"/> <text class="axistext" x="40" y="30.05">  65</text>
+          <text id="x1_er"  class="axistext" x="88"  y="360" text-anchor="middle"> 1</text>
+          <text id="x2_er" class="axistext" x="154" y="360" text-anchor="middle"> 2</text>
+          <text id="x3_er" class="axistext" x="220" y="360" text-anchor="middle"> 3</text>
+          <text id="x4_er" class="axistext" x="286" y="360" text-anchor="middle"> 4</text>
+          <text id="x5_er" class="axistext" x="352" y="360" text-anchor="middle"> 5+</text>
+      
+          <rect id="er_1" x="71" y="344" width="34" height="10" transform="rotate(180,88,344)" fill="green"/>
+          <rect id="er_2" x="137" y="344" width="34" height="20" transform="rotate(180,154,344)" fill="cyan"/>
+          <rect id="er_3" x="203" y="344" width="34" height="40" transform="rotate(180,220,344)" fill="blue"/>
+          <rect id="er_4" x="269" y="344" width="34" height="35" transform="rotate(180,286,344)" fill="magenta"/>
+          <rect id="er_5" x="335" y="344" width="34" height="140" transform="rotate(180,352,344)" fill="purple"/>
+      
+          <text id="erval_1"   class="valinfo" x="88"  y="390" text-anchor="middle">  2%</text>
+          <text id="erval_2" class="valinfo" x="154" y="390" text-anchor="middle">  4%</text>
+          <text id="erval_3"  class="valinfo" x="220" y="390" text-anchor="middle">  8%</text>
+          <text id="erval_4"  class="valinfo" x="286" y="390" text-anchor="middle">  7%</text>
+          <text id="erval_5"  class="valinfo" x="352" y="390" text-anchor="middle"> 29%</text>
+        </g>
+        <!-- Reaction time ypx = 344 - 66 * y ; xpx = 455 + 66 * x -->
+        <g id="response_time" stroke-width="1" stroke="black">
+          <path id="yaxis_rt" d="M 455 391 v -362" /> 
+          <text class="axislabel" x="420" y="220" transform="rotate(-90,420,220)"> Reaction Time (s)</text>
+          <text class="axislabel" x="620" y="370" text-anchor="middle">   repetition</text>
+          <path id="xaxis_rt" d="M 455 344  h 330" />                      <text class="axistext" x="430" y="344">     0 </text>
+          <path id="y0.25_rt" d="M455 327.5 h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="327.5">  0.25</text>
+          <path id="y0.5_rt"  d="M455 311   h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="311">    0.5 </text>
+          <path id="y0.75_rt" d="M455 294.5 h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="294.5">  0.75</text>
+          <path id="y1_rt"    d="M455 278   h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="278">    1   </text>
+          <path id="y1.25_rt" d="M455 261.5 h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="261.5">  1.25</text>
+          <path id="y1.5_rt"  d="M455 245   h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="245">    1.5 </text>
+          <path id="y1.75_rt" d="M455 228.5 h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="228.5">  1.75</text>
+          <path id="y2_rt"    d="M455 212   h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="212">    2   </text>
+          <path id="y2.25_rt" d="M455 195.5 h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="195.5">  2.25</text>
+          <path id="y2.5_rt"  d="M455 179   h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="179">    2.5 </text>
+          <path id="y2.75_rt" d="M455 162.5 h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="162.5">  2.75</text>
+          <path id="y3_rt"    d="M455 146   h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="146">    3   </text>
+          <path id="y3.25_rt" d="M455 129.5 h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="129.5">  3.25</text>
+          <path id="y3.5_rt"  d="M455 113   h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="113">    3.5 </text>
+          <path id="y3.75_rt" d="M455 96.5  h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="96.5">   3.75</text>
+          <path id="y4_rt"    d="M455 80    h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="80">     4   </text>
+          <path id="y4.25_rt" d="M455 63.5  h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="63.5">   4.25</text>
+          <path id="y4.5_rt"  d="M455 47    h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="47">     4.5 </text>
+          <path id="y4.75_rt" d="M455 30.5  h 330" stroke-dasharray="1"/> <text class="axistext" x="430" y="30.5">   4.75</text>
+          <text id="x1_rt"  class="axistext" x="488"  y="360" text-anchor="middle"> 1</text>
+          <text id="x2_rt" class="axistext" x="554" y="360" text-anchor="middle">   2</text>
+          <text id="x3_rt" class="axistext" x="620" y="360" text-anchor="middle">   3</text>
+          <text id="x4_rt" class="axistext" x="686" y="360" text-anchor="middle">   4</text>
+          <text id="x5_rt" class="axistext" x="752" y="360" text-anchor="middle">   5+</text>
+      
+          <rect id="rt_1"  x="471" y="344" width="34" height="120"  transform="rotate(180,488,344)" fill="green"/>
+          <rect id="rt_2" x="537" y="344" width="34" height="160"  transform="rotate(180,554,344)" fill="cyan"/>
+          <rect id="rt_3" x="603" y="344" width="34" height="150"  transform="rotate(180,620,344)" fill="blue"/>
+          <rect id="rt_4" x="669" y="344" width="34" height="230"  transform="rotate(180,686,344)" fill="magenta"/>
+          <rect id="rt_5" x="735" y="344" width="34" height="240" transform="rotate(180,752,344)" fill="purple"/>
+          
+          <text id="rtval_1"  class="valinfo" x="488" y="390" text-anchor="middle"> 1.8s</text>
+          <text id="rtval_2" class="valinfo" x="554" y="390" text-anchor="middle"> 2.4s</text>
+          <text id="rtval_3" class="valinfo" x="620" y="390" text-anchor="middle"> 2.3s</text>
+          <text id="rtval_4" class="valinfo" x="686" y="390" text-anchor="middle"> 3.5s</text>
+          <text id="rtval_5" class="valinfo" x="752" y="390" text-anchor="middle"> 3.6s</text>
+        </g>
+      </svg>
+
+    <table id="trialtable" border="0">
+      <tr>
+        <th>trial</th>
+        <th>response</th>
+      </tr>
+    </table>
+    <a href="data:text/plain;charset=utf-8,%EF%BB%BF" id="cjtJSON" download="testdata.json">
+      debug</a>
+  </div>
+</body>

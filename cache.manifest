@@ -1,0 +1,7 @@
+CACHE MANIFEST
+# 2021-06-13:v0.9.6
+# Liste des ressources a mettre en cache pour usage off-line
+# regenerer avec ls *.css *.html *.js stim/* stim_cs/*
+index.html
+BrixtonModif.js
+../Style.css
