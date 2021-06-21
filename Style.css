@@ -1,0 +1,163 @@
+/* Feuille de style pour les tests */
+body {
+  /* couleur d'arrière-plan */
+  background-color: #f0f0f0;
+}
+h1 {
+  /* titre centré */
+  text-align: center;
+}
+button {
+	border-radius: 20px;
+	border-width: 3px;
+	margin-left: 6%;
+  width: 41%;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: Noteworthy;
+  background-color: gold;
+	padding: 4%;
+}
+button:nth-of-type(2n+1) {
+  background-color: chartreuse;
+}
+select {
+  font-size: 24px;
+  width: 5em;
+}
+#configuration:target {
+  display: block;
+}
+#configuration {
+  display: none;
+	position: absolute;
+	width: 20%;
+	left: 40%;
+	font-size: 24px;
+  font-family: Noteworthy;
+}
+#PC{
+  display: block;
+  width:100%;
+  text-align: center;
+  margin-top: 8%;
+  color: gray;
+  font-size: 24pt;
+}
+#configuration:target+#PC {
+  color: #efefef;
+}
+svg {
+  /* svg maximisé dans son parent */
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+}
+/* controle son */
+#consigne {
+  width: 2em;
+  border-radius: 5pt;
+}
+.hidden {
+  position: absolute;
+  top: -99999px;
+  left: -9999px;
+  display: none;
+}
+#selectscreen {
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+#testscreen {
+  position: fixed;
+  background-color: #f0f0f0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+}
+#topitem {
+  /* positionnement de l'item du haut */
+  position: absolute;
+  top: 10%;
+  left: 33.5%;
+  width: 33%;
+  height: 45%;
+  text-align: center;
+}
+.HG,.topleft {
+  /* positionnement de l'item en haut à gauche */
+  position: absolute;
+  top: 10%;
+  left: 11%;
+  width: 33%;
+  height: 45%;
+  text-align: center;
+}
+.HD,.topright {
+  /* positionnement de l'item en haut à droite */
+  position: absolute;
+  top: 10%;
+  right: 11%;
+  width: 33%;
+  height: 45%;
+  text-align: center;
+}
+.BG,.bottomleft {
+  /* positionnement de l'item en bas à gauche */
+  position: absolute;
+  bottom: 0;
+  left: 11%;
+  width: 33%;
+  height: 45%;
+  text-align: center;
+}
+.BD,.bottomright {
+  /* positionnement de l'item en bas à droite */
+  position: absolute;
+  bottom: 0;
+  right: 11%;
+  width: 33%;
+  height: 45%;
+  text-align: center;
+}
+.center {
+  position: absolute;
+  right: 40%;
+  top: 35%;
+  width: 20%;
+  height: 30%;
+  text-align: center;
+}
+.btnlink {
+	border-style: solid;
+	border: 2pt solid blue;
+	background-color: white;
+	padding: 2vh;
+	border-radius: 1vh;
+	font-size: 2em;
+	box-sizing: border-box;
+	/* margin: 2vh; */
+	display: inline-block;
+}
+table {
+  text-align: center;
+  width: 100%;
+}
+thead {
+  background-color: #afafaf;
+}
+tbody > tr:nth-of-type(2n+1) {
+	background-color:white;
+}
+#cjtJSON {
+  margin-top: 50px;
+  font-size: .5em;
+  color: tan;
+  float: right;
+}
