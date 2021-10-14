@@ -15,8 +15,16 @@
   <script type="text/javascript" src="BrixtonModif.js"> </script>
 </head>
 <body>
-  <div id="testscreen">
-    <h1 id="title" hidden>Brixton Modifié</h1>
+  <div id="infosuj">
+    <h1 id="title">Brixton Modifié</h1>
+      <h2>Code participant :</h2>
+      <form action="#" method="post" onsubmit="commencer(); return(false)">
+      <label for="Participant">Code participant (5 caractères) :</label>
+      <input type="text" id="participant_code" name="participant_code" pattern="[A-Za-z0-9]{5}" size="5" title="Code participant en 5 caractères"><br><br>
+      <input type="submit">
+      </form>
+  </div>
+  <div id="testscreen" hidden>
     <svg viewBox="0 0 800 600">
       <g>
         <circle id="c0" cx="100" cy="300" r="30" fill="black" stroke="black"/>

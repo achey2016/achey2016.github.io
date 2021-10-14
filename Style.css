@@ -161,3 +161,14 @@ tbody > tr:nth-of-type(2n+1) {
   color: tan;
   float: right;
 }
+input:required:invalid, input:focus:invalid {
+  border-color: red;
+  border-width: 3;
+  background-color: mistyrose;
+  color: darkred;
+  font-weight: bold;
+}
+#participant_code {
+  font-size: x-large;
+}
+

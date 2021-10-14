@@ -237,10 +237,12 @@ var endTest = function(e) {
   // Modifier le numero du sujet pour l'enregistrement
   if(listeTests[0].debut) {
     var date_heure = listeTests[0].debut.toISOString().substr(0,16).replace(/-|T|:/g,"");
-    document.getElementById("allCSV").download="test" + date_heure + ".csv";
-    document.getElementById("allCSV").innerHTML = "Enregistrer test" + date_heure + ".csv";
+    var csv_name = listeTests[0].participant + "_" + document.title + "_" + date_heure + ".csv";
+    document.getElementById("allCSV").download=csv_name;
+    document.getElementById("allCSV").innerHTML = "Enregistrer " + csv_name;
     // rappel score sans le premier item
     document.getElementById("score").innerHTML = "Score : " + (score - 1) + " / " + (listeTests.length - 1);
+    document.getElementById("score").innerHTML += "<br>Participant : " + listeTests[0].participant;
     document.getElementById("score").innerHTML += "<br>Abandons : " + nb_abandon ;
     document.getElementById("score").innerHTML += "<br>Persévérances : " + nb_perseverance;
     document.getElementById("score").innerHTML += "<br>Début : " + listeTests[0].debut.toLocaleString();
@@ -253,7 +255,7 @@ var endTest = function(e) {
   // table récapitulative
   var trialtable = document.getElementById("trialtable");
   var colnames = [
-    "title","from",
+    "participant","title","from",
     "to","repetition","rule",
     "debut","fin",
     "essais","response",
@@ -321,6 +323,20 @@ var gonext;
   } 
 };
 
+// lire le code participant et commencer l'essai
+var commencer = function() {
+  listeTests.forEach(x => x.participant = document.getElementById("participant_code").value);
+  console.log(listeTests[0].participant);
+  // masquer le clavier et le formulaire, afficher le test
+  document.activeElement.blur();
+  document.getElementById("infosuj").hidden = true;
+  document.getElementById("testscreen").hidden = false;
+  // premier trial
+  gonext();
+  // renvoyer false pour eviter le rechargement de la page a la soumission du formulaire
+  return(false); 
+};
+
 // mise a jour du cache pour les ipads
 var maj_cache = function(e) {
     window.applicationCache.swapCache();
@@ -355,10 +371,7 @@ var onCacheOK = function() {
     } else {
       document.getElementById("c" + i).addEventListener('click', setinfotrial, true);
     }
-    
   }
-  // premier trial
-  gonext();
 }
 // log cache
 var logCacheEvent = function(evt) {
