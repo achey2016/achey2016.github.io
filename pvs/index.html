@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <title>Test</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" type="image/png" />
+  <link rel="shortcut icon" href="apple-touch-icon.png" type="image/png" />
+  <link rel="stylesheet" media="screen" href="Style.css" type="text/css" />
+  <script type="text/javascript" src="scripts.js"> </script>
+</head>
+<body>
+  <h1 id="title">Test 1 : longueur</h1>
+  <div id="infosuj">
+      <h2>Code participant :</h2>
+      <form action="#" method="post" onsubmit="commencer(); return(false)">
+      <label for="Participant">Code participant (5 caractères) :</label>
+      <input type="text" id="participant_code" name="participant_code" pattern="[A-Za-z0-9]{5}" size="5" title="Code participant en 5 caractères"><br><br>
+      <input type="submit" value="Commencer">
+      </form>
+  </div>
+  <div id="testscreen" hidden>
+    
+    <div id="topitem">
+      <svg viewBox="0 0 400 400">
+        <image id="topimg" xlink:href="stim/taille2.svg" x="0" y="0" width="400" height="400" />
+      </svg>
+    </div>
+    <div id="gooditem" class="hidden">
+      <svg viewBox="0 0 400 400">
+        <g>
+          <rect x="0" y="0" width="400" height="400" fill="none" filter="url(#fondcolore)" ></rect>
+          <image id="goodimg" xlink:href="stim/taille2.svg" x="0" y="0" width="400" height="400" />
+          <animateTransform id="good"
+                            attributeName="transform"
+                            attributeType="XML"
+                            type="rotate"
+                            from="0 200 200"
+                            to="360 200 200"
+                            dur="1s"
+                            begin = "indefinite"
+                            repeatCount="1"/>
+        </g>
+      </svg>
+    </div>
+    <div id="baditem" class="hidden">
+      <svg viewBox="0 0 400 400">
+        <g>
+          <image id="badimg" xlink:href="stim/taille2alt.svg" x="0" y="0" width="400" height="400" />
+          <animateTransform id="bad"
+                            attributeName="transform"
+                            attributeType="XML"
+                            type="rotate"
+                            from="0 200 200"
+                            to="5 200 200"
+                            dur="0.5s"
+                            begin = "indefinite"
+                            repeatCount="1"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div id="endscreen" hidden>
+    <h2>Résultats</h2>
+    <a href="data:text/plain;charset=utf-8,%EF%BB%BF" id="allCSV" download="testdata.csv" class="btnlink">
+      Enregistrer</a>
+    <a id="nextsuj" href="index.html" class="btnlink">Nouveau test</a>
+    <h2 id="score">Score : </h2>
+    <table id="trialtable" border="0">
+      <tr>
+        <th>trial</th>
+        <th>response</th>
+      </tr>
+    </table>
+    <a href="data:text/plain;charset=utf-8,%EF%BB%BF" id="cjtJSON" download="testdata.json">
+      debug</a>
+  </div>
+</body>
+</html>
