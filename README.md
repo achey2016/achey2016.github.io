@@ -2,7 +2,15 @@
 
 # Liste des tests
 
-Test de brixton modifié : - <https://achey2016.github.io/bx/>
+Test de brixton modifié : 
+- <https://achey2016.github.io/bx/>
+
+Tests de perception visuo-spatiale élémentaire (cf [Pisella et al., 2012](http://dx.doi.org/10.1016/j.neuropsychologia.2012.11.015)) :
+- <https://achey2016.github.io/pvs/?test=1>
+- <https://achey2016.github.io/pvs/?test=2>
+- <https://achey2016.github.io/pvs/?test=3>
+- <https://achey2016.github.io/pvs/?test=4>
+- <https://achey2016.github.io/pvs/?test=5>
 
 Pour l'installer sur un iPad/iPhone : 
 1. Ouvrir le lien avec Safari
