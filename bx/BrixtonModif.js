@@ -373,11 +373,31 @@ var onCacheOK = function() {
     }
   }
 }
-// log cache
-var logCacheEvent = function(evt) {
-  console.log(evt.type);
-  document.getElementById("title").innerHTML = "! ! ! ! ! "+ evt.type + " ! ! ! ! ! ";
+// log message from serviceWorker
+var logMsg = function(evt) {
+  console.log(evt);
+  if (evt.data) {
+    if (evt.data.indexOf('version:')==0) {
+      document.getElementById("title").innerHTML = document.getElementById("title").innerHTML.replace(/\( version: [^\)]*\)|$/, " ( "+ evt.data + " )");
+    } else {
+      document.getElementById("title").insertAdjacentText("afterend",evt.data + "\n");
+    }
+  } else if (evt.type == "controllerchange") {
+    if (navigator.serviceWorker.controller) {
+        // demander la version
+        navigator.serviceWorker.controller.postMessage('version');
+    } else {
+      document.getElementById("title").insertAdjacentText("afterend", 
+      "Un changement de contrôleur est intervenu, mais le contrôleur n'est pas défini.\n");
+    }
+    // en cas de changement de contrôleur, s'il n'y a pas un test en cours, mieux vaut recharger la page
+    if (currentTest <0) {
+      endTest(evt);
+    }
     
+  } else {
+    document.getElementById("title").insertAdjacentText("afterend", "! ! ! ! ! "+ JSON.stringify(evt) + " ! ! ! ! !\n");
+  }
 };
 
 // cette fonction (window.onload) s'exécute lorsque la page est chargée
@@ -385,25 +405,15 @@ window.onload = function() {
   // Mettre a jour l'adresse pour nextsuj
   document.getElementById("nextsuj").href = document.location.href;
   // gestion du cache
-  if (window.applicationCache && 
-      window.applicationCache.status !== window.applicationCache.UNCACHED) {
-    // en cas de mise a jour du cache, le charger
-    window.applicationCache.addEventListener('updateready',  maj_cache, false);  
-    // s'il n'y a pas de MAJ ou si tout est en cache on peut commencer
-    window.applicationCache.addEventListener('noupdate',onCacheOK,false);
-    window.applicationCache.addEventListener('cached',onCacheOK,false);
-    // s'il n'y a plus de cache ou si le reseau ne repond pas on peut commencer
-    window.applicationCache.addEventListener('obsolete',onCacheOK,false);
-    window.applicationCache.addEventListener('error',onCacheOK,false);
-    // sinon tout logger
-    // checking a toujours lieu au moins 1 fois
-    window.applicationCache.addEventListener('checking',logCacheEvent,false);
-    // les ressources sont en cours de telechargement
-    window.applicationCache.addEventListener('downloading',logCacheEvent,false);
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.addEventListener('message', logMsg);
+    navigator.serviceWorker.addEventListener('error', logMsg);
+    navigator.serviceWorker.addEventListener('controllerchange', logMsg);
+    // skip le cache HTTP du navigateur, c'est le sw qui gerera le cache
+    navigator.serviceWorker.register('sw.js',{updateViaCache: 'none'}).then(onCacheOK);
   } else {
-    // s'il n'y a pas de gestion du cache on peut commencer
+    document.getElementById("title").insertAdjacentText("afterend", "! ! ! ! ! Pas d'utilisation hors ligne possible ! ! ! ! !\n");
     onCacheOK();
   }
 };
-
 

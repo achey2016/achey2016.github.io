@@ -1,7 +1,9 @@
 CACHE MANIFEST
-# 2021-10-14:v0.10.1
+# 2021-11-17:v0.10.2-stop.using.cache.manifest
 # Liste des ressources a mettre en cache pour usage off-line
 # regenerer avec ls *.css *.html *.js stim/* stim_cs/*
-index.html
-BrixtonModif.js
-../Style.css
+NETWORK:
+*
+
+CACHE:
+FALLBACK:
