@@ -1,5 +1,5 @@
 console.log('[Service Worker] registering');
-cacheName = 'bx-v2.0' ;
+cacheName = 'bx-v2.1' ;
 alllist = [ '../Style.css',
             'index.html',
             'BrixtonModif.js'];

@@ -19,6 +19,11 @@ var listeRegles = [
   {"alternance": [-1,1], "repetitions" :5},
   {"alternance": [-4,4], "repetitions" :5},
 ];
+
+// temps maximum pour repondre : une minute (60000 ms)
+var maxwait = 60000;
+var checkTimeoutInterval = false;
+
 var applique_regle = function(from,regle) {
   var retval = -1;
   if(regle.increment) {
@@ -232,8 +237,13 @@ var maj_graphique = function(listeTests) {
 // fin du test
 var endTest = function(e) {
   preventDefaultGestures = false;
+  document.getElementById("pausescreen").hidden = true;
   document.getElementById("testscreen").hidden=true;
   document.getElementById("endscreen").hidden=false;
+  if (checkTimeoutInterval) {
+    clearInterval(checkTimeoutInterval);
+    checkTimeoutInterval = false;
+  }
   // Modifier le numero du sujet pour l'enregistrement
   if(listeTests[0].debut) {
     var date_heure = listeTests[0].debut.toISOString().substr(0,16).replace(/-|T|:/g,"");
@@ -295,8 +305,7 @@ var errormsg = function(e, msg) {
   endTest(e);
 };
 // définition de la fonction pour aller au test suivant : gonext
-var gonext;
-    gonext = function(e) {
+var gonext = function(e) {
   console.log("gonext : " + currentTest);
   
   currentTest = currentTest+1;
@@ -323,6 +332,36 @@ var gonext;
   } 
 };
 
+// Reprendre (apres interruption prolongee)
+var reprendre = function() {
+  currentTest = currentTest - 1;
+  document.getElementById("pausescreen").hidden = true;
+  document.getElementById("testscreen").hidden = false;
+  gonext();
+};
+
+// Mettre en pause (si interruption prolongee)
+var pause = function() {
+  document.getElementById("reprendre").addEventListener('click', reprendre, {once: true, capture: true});
+  document.getElementById("terminer").addEventListener('click', endTest, {once: true, capture: true});
+  document.getElementById("testscreen").hidden = true;
+  document.getElementById("pausescreen").hidden = false;
+};
+
+// Verifier que le sujet est bien actif (absence d'interruption prolongee)
+var checkTimeout = function() {
+  if ( !document.getElementById("testscreen").hidden ) {
+    if (currentTest>=0 && currentTest < listeTests.length && listeTests[currentTest].debut ) {
+      datenow =  new Date();
+      elapsed = datenow.getTime() - listeTests[currentTest].debut.getTime();
+      if (elapsed > maxwait) {
+        pause();
+      }
+    } 
+  }
+};
+
+
 // lire le code participant et commencer l'essai
 var commencer = function() {
   listeTests.forEach(x => x.participant = document.getElementById("participant_code").value);
@@ -331,6 +370,8 @@ var commencer = function() {
   document.activeElement.blur();
   document.getElementById("infosuj").hidden = true;
   document.getElementById("testscreen").hidden = false;
+  // verifier l'absence d'interruption prolongee
+  checkTimeoutInterval = setInterval(checkTimeout,maxwait);
   // premier trial
   gonext();
   // renvoyer false pour eviter le rechargement de la page a la soumission du formulaire
@@ -392,6 +433,7 @@ var logMsg = function(evt) {
     }
     // en cas de changement de contrôleur, s'il n'y a pas un test en cours, mieux vaut recharger la page
     if (currentTest <0) {
+      document.getElementById("infosuj").hidden = true;
       endTest(evt);
     }
     
