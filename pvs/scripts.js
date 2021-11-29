@@ -1,82 +1,11 @@
 // Liste des tests (pages html sur le même modèle)
-var listeTests = [
-  // Test 1
-  {"title":"Test 1 : longueur 1/12","topimg":"stim/longueur1.svg","goodimg":"stim/longueur1.svg","badimg":"stim/longueur1alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_50"},
-  {"title":"Test 1 : longueur 2/12","topimg":"stim/longueur2.svg","goodimg":"stim/longueur2.svg","badimg":"stim/longueur2alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_50"},
-  {"title":"Test 1 : longueur 3/12","topimg":"stim/longueur3.svg","goodimg":"stim/longueur3.svg","badimg":"stim/longueur3alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_35"},
-  {"title":"Test 1 : longueur 4/12","topimg":"stim/longueur4.svg","goodimg":"stim/longueur4.svg","badimg":"stim/longueur4alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_35"},
-  {"title":"Test 1 : longueur 5/12","topimg":"stim/longueur5.svg","goodimg":"stim/longueur5.svg","badimg":"stim/longueur5alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_20"},
-  {"title":"Test 1 : longueur 6/12","topimg":"stim/longueur6.svg","goodimg":"stim/longueur6.svg","badimg":"stim/longueur6alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_20"},
-  {"title":"Test 1 : longueur 7/12","topimg":"stim/longueur1.svg","goodimg":"stim/longueur1.svg","badimg":"stim/longueur1alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_50"},
-  {"title":"Test 1 : longueur 8/12","topimg":"stim/longueur2.svg","goodimg":"stim/longueur2.svg","badimg":"stim/longueur2alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_50"},
-  {"title":"Test 1 : longueur 9/12","topimg":"stim/longueur3.svg","goodimg":"stim/longueur3.svg","badimg":"stim/longueur3alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_35"},
-  {"title":"Test 1 : longueur 10/12","topimg":"stim/longueur4.svg","goodimg":"stim/longueur4.svg","badimg":"stim/longueur4alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_35"},
-  {"title":"Test 1 : longueur 11/12","topimg":"stim/longueur5.svg","goodimg":"stim/longueur5.svg","badimg":"stim/longueur5alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_20"},
-  {"title":"Test 1 : longueur 12/12","topimg":"stim/longueur6.svg","goodimg":"stim/longueur6.svg","badimg":"stim/longueur6alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_20"},
-  {"title":"Test 2 : taille 1/12","topimg":"stim/taille1.svg","goodimg":"stim/taille1.svg","badimg":"stim/taille1alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_50"}, 
-  {"title":"Test 2 : taille 2/12","topimg":"stim/taille2.svg","goodimg":"stim/taille2.svg","badimg":"stim/taille2alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_50"}, 
-  {"title":"Test 2 : taille 3/12","topimg":"stim/taille3.svg","goodimg":"stim/taille3.svg","badimg":"stim/taille3alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_35"}, 
-  {"title":"Test 2 : taille 4/12","topimg":"stim/taille4.svg","goodimg":"stim/taille4.svg","badimg":"stim/taille4alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_35"}, 
-  {"title":"Test 2 : taille 5/12","topimg":"stim/taille5.svg","goodimg":"stim/taille5.svg","badimg":"stim/taille5alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_20"}, 
-  {"title":"Test 2 : taille 6/12","topimg":"stim/taille6.svg","goodimg":"stim/taille6.svg","badimg":"stim/taille6alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_20"}, 
-  {"title":"Test 2 : taille 7/12","topimg":"stim/taille1.svg","goodimg":"stim/taille1.svg","badimg":"stim/taille1alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_50"}, 
-  {"title":"Test 2 : taille 8/12","topimg":"stim/taille2.svg","goodimg":"stim/taille2.svg","badimg":"stim/taille2alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_50"}, 
-  {"title":"Test 2 : taille 9/12","topimg":"stim/taille3.svg","goodimg":"stim/taille3.svg","badimg":"stim/taille3alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_35"}, 
-  {"title":"Test 2 : taille 10/12","topimg":"stim/taille4.svg","goodimg":"stim/taille4.svg","badimg":"stim/taille4alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_35"}, 
-  {"title":"Test 2 : taille 11/12","topimg":"stim/taille5.svg","goodimg":"stim/taille5.svg","badimg":"stim/taille5alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_20"}, 
-  {"title":"Test 2 : taille 12/12","topimg":"stim/taille6.svg","goodimg":"stim/taille6.svg","badimg":"stim/taille6alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_20"},
-  { "title": "Test 3 : angle 1/12", "topimg": "stim/angle.svg", "goodimg": "stim/angle.svg", "badimg": "stim/angle1alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"angle_7°"},
-  { "title": "Test 3 : angle 2/12", "topimg": "stim/angle2alt.svg", "goodimg": "stim/angle2alt.svg", "badimg": "stim/angle.svg", "good":"bottomright", "bad":"bottomleft", "type":"angle_7°"},
-  { "title": "Test 3 : angle 3/12", "topimg": "stim/angle.svg", "goodimg": "stim/angle.svg", "badimg": "stim/angle3alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"angle_4°"},
-  { "title": "Test 3 : angle 4/12", "topimg": "stim/angle4alt.svg", "goodimg": "stim/angle4alt.svg", "badimg": "stim/angle.svg", "good":"bottomright", "bad":"bottomleft", "type":"angle_4°"},
-  { "title": "Test 3 : angle 5/12", "topimg": "stim/angle5alt.svg", "goodimg": "stim/angle5alt.svg", "badimg": "stim/angle.svg", "good":"bottomleft", "bad":"bottomright", "type":"angle_2°"},
-  { "title": "Test 3 : angle 6/12", "topimg": "stim/angle.svg", "goodimg": "stim/angle.svg", "badimg": "stim/angle6alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"angle_2°"},
-  { "title": "Test 3 : angle 7/12", "topimg": "stim/angle1alt.svg", "goodimg": "stim/angle1alt.svg", "badimg": "stim/angle.svg", "good":"bottomright", "bad":"bottomleft", "type":"angle_7°"},
-  { "title": "Test 3 : angle 8/12", "topimg": "stim/angle.svg", "goodimg": "stim/angle.svg", "badimg": "stim/angle2alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"angle_7°"},
-  { "title": "Test 3 : angle 9/12", "topimg": "stim/angle3alt.svg", "goodimg": "stim/angle3alt.svg", "badimg": "stim/angle.svg", "good":"bottomright", "bad":"bottomleft", "type":"angle_4°"},
-  { "title": "Test 3 : angle 10/12", "topimg": "stim/angle.svg", "goodimg": "stim/angle.svg", "badimg": "stim/angle4alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"angle_4°"},
-  { "title": "Test 3 : angle 11/12", "topimg": "stim/angle.svg", "goodimg": "stim/angle.svg", "badimg": "stim/angle5alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"angle_2°"},
-  { "title": "Test 3 : angle 12/12", "topimg": "stim/angle6alt.svg", "goodimg": "stim/angle6alt.svg", "badimg": "stim/angle.svg", "good":"bottomleft", "bad":"bottomright", "type":"angle_2°"},
-  { "title": "Test 4 : milieu 1/12", "topimg": "stim/milieu.svg?i=1", "goodimg": "stim/milieu.svg?i=1", "badimg": "stim/milieu1alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"milieu_9"},
-  { "title": "Test 4 : milieu 2/12", "topimg": "stim/milieu.svg?i=2", "goodimg": "stim/milieu.svg?i=2", "badimg": "stim/milieu2alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"milieu_9"},
-  { "title": "Test 4 : milieu 3/12", "topimg": "stim/milieu.svg?i=3", "goodimg": "stim/milieu.svg?i=3", "badimg": "stim/milieu3alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"milieu_6"},
-  { "title": "Test 4 : milieu 4/12", "topimg": "stim/milieu.svg?i=4", "goodimg": "stim/milieu.svg?i=4", "badimg": "stim/milieu4alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"milieu_6"},
-  { "title": "Test 4 : milieu 5/12", "topimg": "stim/milieu.svg?i=5", "goodimg": "stim/milieu.svg?i=5", "badimg": "stim/milieu5alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"milieu_3"},
-  { "title": "Test 4 : milieu 6/12", "topimg": "stim/milieu.svg?i=6", "goodimg": "stim/milieu.svg?i=6", "badimg": "stim/milieu6alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"milieu_3"},  
-  { "title": "Test 4 : milieu 7/12", "topimg": "stim/milieu.svg?i=7", "goodimg": "stim/milieu.svg?i=7", "badimg": "stim/milieu1alt.svg?i=2", "good":"bottomright", "bad":"bottomleft", "type":"milieu_9"},
-  { "title": "Test 4 : milieu 8/12", "topimg": "stim/milieu.svg?i=8", "goodimg": "stim/milieu.svg?i=8", "badimg": "stim/milieu2alt.svg?i=2", "good":"bottomleft", "bad":"bottomright", "type":"milieu_9"},
-  { "title": "Test 4 : milieu 9/12", "topimg": "stim/milieu.svg?i=9", "goodimg": "stim/milieu.svg?i=9", "badimg": "stim/milieu3alt.svg?i=2", "good":"bottomright", "bad":"bottomleft", "type":"milieu_6"},
-  { "title": "Test 4 : milieu 10/12", "topimg": "stim/milieu.svg?i=10", "goodimg": "stim/milieu.svg?i=10", "badimg": "stim/milieu4alt.svg?i=2", "good":"bottomright", "bad":"bottomleft", "type":"milieu_6"},
-  { "title": "Test 4 : milieu 11/12", "topimg": "stim/milieu.svg?i=11", "goodimg": "stim/milieu.svg?i=11", "badimg": "stim/milieu5alt.svg?i=2", "good":"bottomleft", "bad":"bottomright", "type":"milieu_3"},
-  { "title": "Test 4 : milieu 12/12", "topimg": "stim/milieu.svg?i=12", "goodimg": "stim/milieu.svg?i=12", "badimg": "stim/milieu6alt.svg?i=2", "good":"bottomleft", "bad":"bottomright", "type":"milieu_3"},
-  { "title": "Test 5 : position relative 1/12", "topimg": "stim/posrel1.svg", "goodimg": "stim/posrel1.svg", "badimg": "stim/posrel1alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_miroir"},
-  { "title": "Test 5 : position relative 2/12", "topimg": "stim/posrel2.svg", "goodimg": "stim/posrel2.svg", "badimg": "stim/posrel2alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_miroir"},
-  { "title": "Test 5 : position relative 3/12", "topimg": "stim/posrel3.svg", "goodimg": "stim/posrel3.svg", "badimg": "stim/posrel3alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_10"},
-  { "title": "Test 5 : position relative 4/12", "topimg": "stim/posrel4.svg", "goodimg": "stim/posrel4.svg", "badimg": "stim/posrel4alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_10"},
-  { "title": "Test 5 : position relative 5/12", "topimg": "stim/posrel5.svg", "goodimg": "stim/posrel5.svg", "badimg": "stim/posrel5alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_7.5"},
-  { "title": "Test 5 : position relative 6/12", "topimg": "stim/posrel6.svg", "goodimg": "stim/posrel6.svg", "badimg": "stim/posrel6alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_7.5"},
-  { "title": "Test 5 : position relative 7/12", "topimg": "stim/posrel1.svg", "goodimg": "stim/posrel1.svg", "badimg": "stim/posrel1alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_miroir"},
-  { "title": "Test 5 : position relative 8/12", "topimg": "stim/posrel2.svg", "goodimg": "stim/posrel2.svg", "badimg": "stim/posrel2alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_miroir"},
-  { "title": "Test 5 : position relative 9/12", "topimg": "stim/posrel3.svg", "goodimg": "stim/posrel3.svg", "badimg": "stim/posrel3alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_10"},
-  { "title": "Test 5 : position relative 10/12", "topimg": "stim/posrel4.svg", "goodimg": "stim/posrel4.svg", "badimg": "stim/posrel4alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_10"},
-  { "title": "Test 5 : position relative 11/12", "topimg": "stim/posrel5.svg", "goodimg": "stim/posrel5.svg", "badimg": "stim/posrel5alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_7.5"},
-  { "title": "Test 5 : position relative 12/12", "topimg": "stim/posrel6.svg", "goodimg": "stim/posrel6.svg", "badimg": "stim/posrel6alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_7.5"},
-  { "title": "Test 6 : position relative 1/12", "topimg": "stim/posrel_3cm_1.svg", "goodimg": "stim/posrel_3cm_1.svg", "badimg": "stim/posrel_3cm_1alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_miroir"},
-  { "title": "Test 6 : position relative 2/12", "topimg": "stim/posrel_3cm_2.svg", "goodimg": "stim/posrel_3cm_2.svg", "badimg": "stim/posrel_3cm_2alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_miroir"},
-  { "title": "Test 6 : position relative 3/12", "topimg": "stim/posrel_3cm_3.svg", "goodimg": "stim/posrel_3cm_3.svg", "badimg": "stim/posrel_3cm_3alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_10"},
-  { "title": "Test 6 : position relative 4/12", "topimg": "stim/posrel_3cm_4.svg", "goodimg": "stim/posrel_3cm_4.svg", "badimg": "stim/posrel_3cm_4alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_10"},
-  { "title": "Test 6 : position relative 5/12", "topimg": "stim/posrel_3cm_5.svg", "goodimg": "stim/posrel_3cm_5.svg", "badimg": "stim/posrel_3cm_5alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_7.5"},
-  { "title": "Test 6 : position relative 6/12", "topimg": "stim/posrel_3cm_6.svg", "goodimg": "stim/posrel_3cm_6.svg", "badimg": "stim/posrel_3cm_6alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_7.5"},
-  { "title": "Test 6 : position relative 7/12", "topimg": "stim/posrel_3cm_1.svg", "goodimg": "stim/posrel_3cm_1.svg", "badimg": "stim/posrel_3cm_1alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_miroir"},
-  { "title": "Test 6 : position relative 8/12", "topimg": "stim/posrel_3cm_2.svg", "goodimg": "stim/posrel_3cm_2.svg", "badimg": "stim/posrel_3cm_2alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_miroir"},
-  { "title": "Test 6 : position relative 9/12", "topimg": "stim/posrel_3cm_3.svg", "goodimg": "stim/posrel_3cm_3.svg", "badimg": "stim/posrel_3cm_3alt.svg", "good":"bottomright", "bad":"bottomleft", "type":"position_10"},
-  { "title": "Test 6 : position relative 10/12", "topimg": "stim/posrel_3cm_4.svg", "goodimg": "stim/posrel_3cm_4.svg", "badimg": "stim/posrel_3cm_4alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_10"},
-  { "title": "Test 6 : position relative 11/12", "topimg": "stim/posrel_3cm_5.svg", "goodimg": "stim/posrel_3cm_5.svg", "badimg": "stim/posrel_3cm_5alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_7.5"},
-  { "title": "Test 6 : position relative 12/12", "topimg": "stim/posrel_3cm_6.svg", "goodimg": "stim/posrel_3cm_6.svg", "badimg": "stim/posrel_3cm_6alt.svg", "good":"bottomleft", "bad":"bottomright", "type":"position_7.5"}
-];
+var listeTests = [];
 
 var currentTest=-1;
 var score = 0;
+// temps maximum pour repondre : une minute (60000 ms)
+var maxwait = 60000;
+var checkTimeoutInterval = false;
 
 // enregistrer la réponse
 var setinfotrial = function(e) {
@@ -93,7 +22,8 @@ var setinfotrial = function(e) {
         if (e.currentTarget.id == "gooditem") {
           // score
           score = score + 1;
-          document.getElementById("good").addEventListener('endEvent', gonext, {once: true, capture: true});document.getElementById("good").beginElement();
+          document.getElementById("good").addEventListener('endEvent', gonext, {once: true, capture: true});
+          document.getElementById("good").beginElement();
         } else {
           document.getElementById("bad").addEventListener('endEvent', gonext, {once: true, capture: true});
           document.getElementById("bad").beginElement();
@@ -135,7 +65,12 @@ var clearCjtStorage = function() {
 var endTest = function(e) {
   preventDefaultGestures = false;
   document.getElementById("testscreen").hidden=true;
+  document.getElementById("pausescreen").hidden = true;
   document.getElementById("endscreen").hidden=false;
+  if (checkTimeoutInterval) {
+    clearInterval(checkTimeoutInterval);
+    checkTimeoutInterval = false;
+  }
   // Modifier le numero du sujet pour l'enregistrement
   if(listeTests[0].debut) {
     var date_heure = listeTests[0].debut.toISOString().substr(0,16).replace(/-|T|:/g,"");
@@ -191,8 +126,7 @@ var errormsg = function(e, msg) {
   endTest(e);
 };
 // définition de la fonction pour aller au test suivant : gonext
-var gonext;
-    gonext = function(e) {
+var gonext = function(e) {
   console.log("gonext : " + currentTest);
    // recherche des éléments svg animateTransform pour la bonne et la mauvaise réponse (good et bad)
   var good = document.getElementById("good");
@@ -260,7 +194,7 @@ var gonext;
     badimg.setAttribute("xlink:href", listeTests[currentTest].badimg);
     setTimeout(function() {
       // Si les images sont en cache, il n'y a pas toujours de trigger d'onload
-      if (window.applicationCache && nload>0) {
+      if (nload===0 || (window.applicationCache && nload>0)) {
         nload=1;
         checkAllLoaded();
       }
@@ -269,6 +203,35 @@ var gonext;
     // c'est fini
     endTest();
   } 
+};
+
+// Reprendre (apres interruption prolongee)
+var reprendre = function() {
+  currentTest = currentTest - 1;
+  document.getElementById("pausescreen").hidden = true;
+  document.getElementById("testscreen").hidden = false;
+  gonext();
+};
+
+// Mettre en pause (si interruption prolongee)
+var pause = function() {
+  document.getElementById("reprendre").addEventListener('click', reprendre, {once: true, capture: true});
+  document.getElementById("terminer").addEventListener('click', endTest, {once: true, capture: true});
+  document.getElementById("testscreen").hidden = true;
+  document.getElementById("pausescreen").hidden = false;
+};
+
+// Verifier que le sujet est bien actif (absence d'interruption prolongee)
+var checkTimeout = function() {
+  if ( !document.getElementById("testscreen").hidden ) {
+    if (currentTest>=0 && currentTest < listeTests.length && listeTests[currentTest].debut ) {
+      datenow =  new Date();
+      elapsed = datenow.getTime() - listeTests[currentTest].debut.getTime();
+      if (elapsed > maxwait) {
+        pause();
+      }
+    } 
+  }
 };
 
 // lire le code participant et commencer l'essai
@@ -281,39 +244,66 @@ var commencer = function() {
   document.activeElement.blur();
   document.getElementById("infosuj").hidden = true;
   document.getElementById("testscreen").hidden = false;
+  // verifier l'absence d'interruption prolongee
+  checkTimeoutInterval = setInterval(checkTimeout,maxwait);
   // premier trial
   gonext();
   // renvoyer false pour eviter le rechargement de la page a la soumission du formulaire
   return(false); 
 };
 
+/* 
+ * lecture json
+ */
+var readJSON = async function(jf) {
+  r = await fetch(jf); 
+  jdata = await r.json();
+  return (jdata);
+}
+
+var readAllJSON = async function(jsonfiles) {
+  for (jf of jsonfiles) {
+    jdata = await readJSON(jf);
+    listeTests = listeTests.concat(jdata);
+  }
+}
 /*
  * Teste si un sous-test est demandé dans l'adresse
  */
 var testeAdressSousTest = function(adress) {
-    if (adress && (adress.indexOf("test=1")>0)) {
-      listeTests = listeTests.filter(x => x.title.match(/Test 1/));
-      document.title = "PVS1";
-    } else if (adress && (adress.indexOf("test=2")>0)) {
-      listeTests = listeTests.filter(x => x.title.match(/Test 2/));
-      document.title = "PVS2";
-    } else if (adress && (adress.indexOf("test=3")>0)) {
-      listeTests = listeTests.filter(x => x.title.match(/Test 3/));
-      document.title = "PVS3";
-    } else if (adress && (adress.indexOf("test=4")>0)) {
-      listeTests = listeTests.filter(x => x.title.match(/Test 4/));
-      document.title = "PVS4";
-    } else if (adress && (adress.indexOf("test=5")>0)) {
-      listeTests = listeTests.filter(x => x.title.match(/Test 5/));
-      document.title = "PVS5";
-    } else if (adress && (adress.indexOf("test=6")>0)) {
-      listeTests = listeTests.filter(x => x.title.match(/Test 6/));
-      document.title = "PVS5_3cm_";
-    } else {
-      listeTests = listeTests.filter(x => x.title.match(/Test [1-5]/));
-      document.title = "PVS";
-    }
+  jsonfiles = [];
+  if (adress && (adress.indexOf("test=1")>0)) {
+    jsonfiles.push('json/pvse1.json');
+    document.title = "PVS1";
+  } else if (adress && (adress.indexOf("test=2")>0)) {
+    jsonfiles.push('json/pvse2.json');
+    document.title = "PVS2";
+  } else if (adress && (adress.indexOf("test=3")>0)) {
+    jsonfiles.push('json/pvse3.json');
+    document.title = "PVS3";
+  } else if (adress && (adress.indexOf("test=4")>0)) {
+    jsonfiles.push('json/pvse4.json');
+    document.title = "PVS4";
+  } else if (adress && (adress.indexOf("test=5")>0)) {
+    jsonfiles.push('json/pvse5.json');
+    document.title = "PVS5";
+  } else {
+    jsonfiles.push('json/pvse1.json');
+    jsonfiles.push('json/pvse2.json');
+    jsonfiles.push('json/pvse3.json');
+    jsonfiles.push('json/pvse4.json');
+    jsonfiles.push('json/pvse5.json');
+    document.title = "PVS";
+  }
+  readAllJSON(jsonfiles).then(function(){
     document.getElementById("title").innerHTML = listeTests[0].title;
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+      // demander la version
+      navigator.serviceWorker.controller.postMessage('version');
+    } else {
+      document.getElementById("title").insertAdjacentText("afterend", "Absence de contrôle du cache\n");
+    }
+  });
 };
 
 /*
@@ -341,13 +331,8 @@ var onCacheOK = function() {
     gooditem.addEventListener('click', setinfotrial, true);
     baditem.addEventListener('click', setinfotrial, true);
   }
-  if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-      // demander la version
-      navigator.serviceWorker.controller.postMessage('version');
-  } else {
-    document.getElementById("title").insertAdjacentText("afterend", "Absence de contrôle du cache\n");
-  }
-};
+}
+
 // log message from serviceWorker
 var logMsg = function(evt) {
   console.log(evt);
@@ -366,6 +351,7 @@ var logMsg = function(evt) {
     }
     // en cas de changement de contrôleur, s'il n'y a pas un test en cours, mieux vaut recharger la page
     if (currentTest <0) {
+      document.getElementById("infosuj").hidden = true;
       endTest(evt);
     }
     

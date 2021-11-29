@@ -1,5 +1,5 @@
 console.log('[Service Worker] registering');
-cacheName = 'cjt-v2.0.alpha20' ;
+cacheName = 'cjt-v2.0.alpha27' ;
 alllist = [ 'Style.css',
             'index.html',
             'index.html?test=1',
