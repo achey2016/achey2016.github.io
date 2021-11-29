@@ -1,0 +1,14 @@
+[
+  {"title":"Test 3 : angle 1/12","topimg":"stim/angle.svg","goodimg":"stim/angle.svg","badimg":"stim/angle1alt.svg","good":"bottomleft","bad":"bottomright","type":"angle_7°"},
+  {"title":"Test 3 : angle 2/12","topimg":"stim/angle2alt.svg","goodimg":"stim/angle2alt.svg","badimg":"stim/angle.svg","good":"bottomright","bad":"bottomleft","type":"angle_7°"},
+  {"title":"Test 3 : angle 3/12","topimg":"stim/angle.svg","goodimg":"stim/angle.svg","badimg":"stim/angle3alt.svg","good":"bottomleft","bad":"bottomright","type":"angle_4°"},
+  {"title":"Test 3 : angle 4/12","topimg":"stim/angle4alt.svg","goodimg":"stim/angle4alt.svg","badimg":"stim/angle.svg","good":"bottomright","bad":"bottomleft","type":"angle_4°"},
+  {"title":"Test 3 : angle 5/12","topimg":"stim/angle5alt.svg","goodimg":"stim/angle5alt.svg","badimg":"stim/angle.svg","good":"bottomleft","bad":"bottomright","type":"angle_2°"},
+  {"title":"Test 3 : angle 6/12","topimg":"stim/angle.svg","goodimg":"stim/angle.svg","badimg":"stim/angle6alt.svg","good":"bottomright","bad":"bottomleft","type":"angle_2°"},
+  {"title":"Test 3 : angle 7/12","topimg":"stim/angle1alt.svg","goodimg":"stim/angle1alt.svg","badimg":"stim/angle.svg","good":"bottomright","bad":"bottomleft","type":"angle_7°"},
+  {"title":"Test 3 : angle 8/12","topimg":"stim/angle.svg","goodimg":"stim/angle.svg","badimg":"stim/angle2alt.svg","good":"bottomleft","bad":"bottomright","type":"angle_7°"},
+  {"title":"Test 3 : angle 9/12","topimg":"stim/angle3alt.svg","goodimg":"stim/angle3alt.svg","badimg":"stim/angle.svg","good":"bottomright","bad":"bottomleft","type":"angle_4°"},
+  {"title":"Test 3 : angle 10/12","topimg":"stim/angle.svg","goodimg":"stim/angle.svg","badimg":"stim/angle4alt.svg","good":"bottomleft","bad":"bottomright","type":"angle_4°"},
+  {"title":"Test 3 : angle 11/12","topimg":"stim/angle.svg","goodimg":"stim/angle.svg","badimg":"stim/angle5alt.svg","good":"bottomright","bad":"bottomleft","type":"angle_2°"},
+  {"title":"Test 3 : angle 12/12","topimg":"stim/angle6alt.svg","goodimg":"stim/angle6alt.svg","badimg":"stim/angle.svg","good":"bottomleft","bad":"bottomright","type":"angle_2°"}
+]

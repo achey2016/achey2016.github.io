@@ -1,0 +1,14 @@
+[
+  {"title":"Test 1 : longueur 1/12","topimg":"stim/longueur1.svg","goodimg":"stim/longueur1.svg","badimg":"stim/longueur1alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_50"},
+  {"title":"Test 1 : longueur 2/12","topimg":"stim/longueur2.svg","goodimg":"stim/longueur2.svg","badimg":"stim/longueur2alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_50"},
+  {"title":"Test 1 : longueur 3/12","topimg":"stim/longueur3.svg","goodimg":"stim/longueur3.svg","badimg":"stim/longueur3alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_35"},
+  {"title":"Test 1 : longueur 4/12","topimg":"stim/longueur4.svg","goodimg":"stim/longueur4.svg","badimg":"stim/longueur4alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_35"},
+  {"title":"Test 1 : longueur 5/12","topimg":"stim/longueur5.svg","goodimg":"stim/longueur5.svg","badimg":"stim/longueur5alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_20"},
+  {"title":"Test 1 : longueur 6/12","topimg":"stim/longueur6.svg","goodimg":"stim/longueur6.svg","badimg":"stim/longueur6alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_20"},
+  {"title":"Test 1 : longueur 7/12","topimg":"stim/longueur1.svg","goodimg":"stim/longueur1.svg","badimg":"stim/longueur1alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_50"},
+  {"title":"Test 1 : longueur 8/12","topimg":"stim/longueur2.svg","goodimg":"stim/longueur2.svg","badimg":"stim/longueur2alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_50"},
+  {"title":"Test 1 : longueur 9/12","topimg":"stim/longueur3.svg","goodimg":"stim/longueur3.svg","badimg":"stim/longueur3alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_35"},
+  {"title":"Test 1 : longueur 10/12","topimg":"stim/longueur4.svg","goodimg":"stim/longueur4.svg","badimg":"stim/longueur4alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_35"},
+  {"title":"Test 1 : longueur 11/12","topimg":"stim/longueur5.svg","goodimg":"stim/longueur5.svg","badimg":"stim/longueur5alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_20"},
+  {"title":"Test 1 : longueur 12/12","topimg":"stim/longueur6.svg","goodimg":"stim/longueur6.svg","badimg":"stim/longueur6alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_20"}
+]

@@ -1,0 +1,14 @@
+[
+  {"title":"Test 4 : milieu 1/12","topimg":"stim/milieu.svg?i=1","goodimg":"stim/milieu.svg?i=1","badimg":"stim/milieu1alt.svg","good":"bottomleft","bad":"bottomright","type":"milieu_9"},
+  {"title":"Test 4 : milieu 2/12","topimg":"stim/milieu.svg?i=2","goodimg":"stim/milieu.svg?i=2","badimg":"stim/milieu2alt.svg","good":"bottomright","bad":"bottomleft","type":"milieu_9"},
+  {"title":"Test 4 : milieu 3/12","topimg":"stim/milieu.svg?i=3","goodimg":"stim/milieu.svg?i=3","badimg":"stim/milieu3alt.svg","good":"bottomleft","bad":"bottomright","type":"milieu_6"},
+  {"title":"Test 4 : milieu 4/12","topimg":"stim/milieu.svg?i=4","goodimg":"stim/milieu.svg?i=4","badimg":"stim/milieu4alt.svg","good":"bottomleft","bad":"bottomright","type":"milieu_6"},
+  {"title":"Test 4 : milieu 5/12","topimg":"stim/milieu.svg?i=5","goodimg":"stim/milieu.svg?i=5","badimg":"stim/milieu5alt.svg","good":"bottomright","bad":"bottomleft","type":"milieu_3"},
+  {"title":"Test 4 : milieu 6/12","topimg":"stim/milieu.svg?i=6","goodimg":"stim/milieu.svg?i=6","badimg":"stim/milieu6alt.svg","good":"bottomright","bad":"bottomleft","type":"milieu_3"},
+  {"title":"Test 4 : milieu 7/12","topimg":"stim/milieu.svg?i=7","goodimg":"stim/milieu.svg?i=7","badimg":"stim/milieu1alt.svg?i=2","good":"bottomright","bad":"bottomleft","type":"milieu_9"},
+  {"title":"Test 4 : milieu 8/12","topimg":"stim/milieu.svg?i=8","goodimg":"stim/milieu.svg?i=8","badimg":"stim/milieu2alt.svg?i=2","good":"bottomleft","bad":"bottomright","type":"milieu_9"},
+  {"title":"Test 4 : milieu 9/12","topimg":"stim/milieu.svg?i=9","goodimg":"stim/milieu.svg?i=9","badimg":"stim/milieu3alt.svg?i=2","good":"bottomright","bad":"bottomleft","type":"milieu_6"},
+  {"title":"Test 4 : milieu 10/12","topimg":"stim/milieu.svg?i=10","goodimg":"stim/milieu.svg?i=10","badimg":"stim/milieu4alt.svg?i=2","good":"bottomright","bad":"bottomleft","type":"milieu_6"},
+  {"title":"Test 4 : milieu 11/12","topimg":"stim/milieu.svg?i=11","goodimg":"stim/milieu.svg?i=11","badimg":"stim/milieu5alt.svg?i=2","good":"bottomleft","bad":"bottomright","type":"milieu_3"},
+  {"title":"Test 4 : milieu 12/12","topimg":"stim/milieu.svg?i=12","goodimg":"stim/milieu.svg?i=12","badimg":"stim/milieu6alt.svg?i=2","good":"bottomleft","bad":"bottomright","type":"milieu_3"}
+]

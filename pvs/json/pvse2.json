@@ -1,0 +1,14 @@
+[
+  {"title":"Test 2 : taille 1/12","topimg":"stim/taille1.svg","goodimg":"stim/taille1.svg","badimg":"stim/taille1alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_50"},
+  {"title":"Test 2 : taille 2/12","topimg":"stim/taille2.svg","goodimg":"stim/taille2.svg","badimg":"stim/taille2alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_50"},
+  {"title":"Test 2 : taille 3/12","topimg":"stim/taille3.svg","goodimg":"stim/taille3.svg","badimg":"stim/taille3alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_35"},
+  {"title":"Test 2 : taille 4/12","topimg":"stim/taille4.svg","goodimg":"stim/taille4.svg","badimg":"stim/taille4alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_35"},
+  {"title":"Test 2 : taille 5/12","topimg":"stim/taille5.svg","goodimg":"stim/taille5.svg","badimg":"stim/taille5alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_20"},
+  {"title":"Test 2 : taille 6/12","topimg":"stim/taille6.svg","goodimg":"stim/taille6.svg","badimg":"stim/taille6alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_20"},
+  {"title":"Test 2 : taille 7/12","topimg":"stim/taille1.svg","goodimg":"stim/taille1.svg","badimg":"stim/taille1alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_50"},
+  {"title":"Test 2 : taille 8/12","topimg":"stim/taille2.svg","goodimg":"stim/taille2.svg","badimg":"stim/taille2alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_50"},
+  {"title":"Test 2 : taille 9/12","topimg":"stim/taille3.svg","goodimg":"stim/taille3.svg","badimg":"stim/taille3alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_35"},
+  {"title":"Test 2 : taille 10/12","topimg":"stim/taille4.svg","goodimg":"stim/taille4.svg","badimg":"stim/taille4alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_35"},
+  {"title":"Test 2 : taille 11/12","topimg":"stim/taille5.svg","goodimg":"stim/taille5.svg","badimg":"stim/taille5alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_20"},
+  {"title":"Test 2 : taille 12/12","topimg":"stim/taille6.svg","goodimg":"stim/taille6.svg","badimg":"stim/taille6alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_20"}
+]
