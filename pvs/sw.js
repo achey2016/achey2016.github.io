@@ -1,5 +1,5 @@
 console.log('[Service Worker] registering');
-cacheName = 'cjt-v2.0.alpha27' ;
+cacheName = 'cjt-v2.0.alpha28' ;
 alllist = [ 'Style.css',
             'index.html',
             'index.html?test=1',
@@ -9,6 +9,14 @@ alllist = [ 'Style.css',
             'index.html?test=5',
             'offline.html',
             'scripts.js',
+            'stim/angle0alt.svg',
+            'stim/longueur0.svg',
+            'stim/longueur0alt.svg',
+            'stim/milieu0alt.svg',
+            'stim/posrel0.svg',
+            'stim/posrel0alt.svg',
+            'stim/taille0.svg',
+            'stim/taille0alt.svg',
             'stim/angle.svg',
             'stim/angle1alt.svg',
             'stim/angle2alt.svg',

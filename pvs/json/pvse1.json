@@ -1,4 +1,5 @@
 [
+  {"title":"Test 1 : exemple","topimg":"stim/longueur0.svg","goodimg":"stim/longueur0.svg","badimg":"stim/longueur0alt.svg","good":"bottomright","bad":"bottomleft","type":"Ex"},
   {"title":"Test 1 : longueur 1/12","topimg":"stim/longueur1.svg","goodimg":"stim/longueur1.svg","badimg":"stim/longueur1alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_50"},
   {"title":"Test 1 : longueur 2/12","topimg":"stim/longueur2.svg","goodimg":"stim/longueur2.svg","badimg":"stim/longueur2alt.svg","good":"bottomleft","bad":"bottomright","type":"longueur_50"},
   {"title":"Test 1 : longueur 3/12","topimg":"stim/longueur3.svg","goodimg":"stim/longueur3.svg","badimg":"stim/longueur3alt.svg","good":"bottomright","bad":"bottomleft","type":"longueur_35"},

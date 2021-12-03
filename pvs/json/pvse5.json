@@ -1,14 +1,13 @@
-[
-  {"title":"Test 5 : position relative 1/12","topimg":"stim/posrel1.svg","goodimg":"stim/posrel1.svg","badimg":"stim/posrel1alt.svg","good":"bottomleft","bad":"bottomright","type":"position_miroir"},
-  {"title":"Test 5 : position relative 2/12","topimg":"stim/posrel2.svg","goodimg":"stim/posrel2.svg","badimg":"stim/posrel2alt.svg","good":"bottomleft","bad":"bottomright","type":"position_miroir"},
-  {"title":"Test 5 : position relative 3/12","topimg":"stim/posrel3.svg","goodimg":"stim/posrel3.svg","badimg":"stim/posrel3alt.svg","good":"bottomleft","bad":"bottomright","type":"position_10"},
-  {"title":"Test 5 : position relative 4/12","topimg":"stim/posrel4.svg","goodimg":"stim/posrel4.svg","badimg":"stim/posrel4alt.svg","good":"bottomright","bad":"bottomleft","type":"position_10"},
-  {"title":"Test 5 : position relative 5/12","topimg":"stim/posrel5.svg","goodimg":"stim/posrel5.svg","badimg":"stim/posrel5alt.svg","good":"bottomright","bad":"bottomleft","type":"position_7.5"},
-  {"title":"Test 5 : position relative 6/12","topimg":"stim/posrel6.svg","goodimg":"stim/posrel6.svg","badimg":"stim/posrel6alt.svg","good":"bottomright","bad":"bottomleft","type":"position_7.5"},
-  {"title":"Test 5 : position relative 7/12","topimg":"stim/posrel1.svg","goodimg":"stim/posrel1.svg","badimg":"stim/posrel1alt.svg","good":"bottomright","bad":"bottomleft","type":"position_miroir"},
-  {"title":"Test 5 : position relative 8/12","topimg":"stim/posrel2.svg","goodimg":"stim/posrel2.svg","badimg":"stim/posrel2alt.svg","good":"bottomright","bad":"bottomleft","type":"position_miroir"},
-  {"title":"Test 5 : position relative 9/12","topimg":"stim/posrel3.svg","goodimg":"stim/posrel3.svg","badimg":"stim/posrel3alt.svg","good":"bottomright","bad":"bottomleft","type":"position_10"},
-  {"title":"Test 5 : position relative 10/12","topimg":"stim/posrel4.svg","goodimg":"stim/posrel4.svg","badimg":"stim/posrel4alt.svg","good":"bottomleft","bad":"bottomright","type":"position_10"},
-  {"title":"Test 5 : position relative 11/12","topimg":"stim/posrel5.svg","goodimg":"stim/posrel5.svg","badimg":"stim/posrel5alt.svg","good":"bottomleft","bad":"bottomright","type":"position_7.5"},
-  {"title":"Test 5 : position relative 12/12","topimg":"stim/posrel6.svg","goodimg":"stim/posrel6.svg","badimg":"stim/posrel6alt.svg","good":"bottomleft","bad":"bottomright","type":"position_7.5"}
-]
+[{"title":"Test 5 : position relative exemple","topimg":"stim/posrel0.svg","goodimg":"stim/posrel0.svg","badimg":"stim/posrel0alt.svg","good":"bottomleft","bad":"bottomleft","type":"Ex"},
+{"title":"Test 5 : position relative 1/12","topimg":"stim/posrel1.svg","goodimg":"stim/posrel1.svg","badimg":"stim/posrel1alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_50"},
+{"title":"Test 5 : position relative 2/12","topimg":"stim/posrel2.svg","goodimg":"stim/posrel2.svg","badimg":"stim/posrel2alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_50"},
+{"title":"Test 5 : position relative 3/12","topimg":"stim/posrel3.svg","goodimg":"stim/posrel3.svg","badimg":"stim/posrel3alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_35"},
+{"title":"Test 5 : position relative 4/12","topimg":"stim/posrel4.svg","goodimg":"stim/posrel4.svg","badimg":"stim/posrel4alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_35"},
+{"title":"Test 5 : position relative 5/12","topimg":"stim/posrel5.svg","goodimg":"stim/posrel5.svg","badimg":"stim/posrel5alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_20"},
+{"title":"Test 5 : position relative 6/12","topimg":"stim/posrel6.svg","goodimg":"stim/posrel6.svg","badimg":"stim/posrel6alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_20"},
+{"title":"Test 5 : position relative 7/12","topimg":"stim/posrel1.svg","goodimg":"stim/posrel1.svg","badimg":"stim/posrel1alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_50"},
+{"title":"Test 5 : position relative 8/12","topimg":"stim/posrel2.svg","goodimg":"stim/posrel2.svg","badimg":"stim/posrel2alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_50"},
+{"title":"Test 5 : position relative 9/12","topimg":"stim/posrel3.svg","goodimg":"stim/posrel3.svg","badimg":"stim/posrel3alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_35"},
+{"title":"Test 5 : position relative 10/12","topimg":"stim/posrel4.svg","goodimg":"stim/posrel4.svg","badimg":"stim/posrel4alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_35"},
+{"title":"Test 5 : position relative 11/12","topimg":"stim/posrel5.svg","goodimg":"stim/posrel5.svg","badimg":"stim/posrel5alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_20"},
+{"title":"Test 5 : position relative 12/12","topimg":"stim/posrel6.svg","goodimg":"stim/posrel6.svg","badimg":"stim/posrel6alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_20"}]
