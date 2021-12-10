@@ -320,6 +320,8 @@ var gonext = function(e) {
     for (var i=0; i<14; i++) {
       if (i==listeTests[currentTest].from) {
         document.getElementById("c" + i).setAttribute("fill","black");
+      } else if (currentTest>0 && i==listeTests[currentTest-1].from) {
+        document.getElementById("c" + i).setAttribute("fill","#ddd");
       } else {
         document.getElementById("c" + i).setAttribute("fill","white");
       }

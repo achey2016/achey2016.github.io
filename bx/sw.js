@@ -1,5 +1,7 @@
 console.log('[Service Worker] registering');
-cacheName = 'bx-v2.1' ;
+appName = 'bx';
+appVersion = '2.2';
+cacheName =  appName + '-v' + appVersion ;
 alllist = [ '../Style.css',
             'index.html',
             'BrixtonModif.js'];
@@ -14,7 +16,7 @@ self.addEventListener('install', (e) => {
         const keyList = await caches.keys();
         console.log('[Service Worker] Nettoyage du cache');
         await Promise.all(keyList.map(function(key) {
-            if (cachesToKeep.indexOf(key) === -1) {
+            if (cachesToKeep.indexOf(key) === -1 && key.indexOf(appName + "-v") === 0) {
               console.log('[Service Worker] Suppression de ', key);
               return caches.delete(key);
             }
