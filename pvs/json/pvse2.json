@@ -1,4 +1,4 @@
-[{"title":"Test 2 : taille exemple","topimg":"stim/taille0.svg","goodimg":"stim/taille0.svg","badimg":"stim/taille0alt.svg","good":"bottomleft","bad":"bottomleft","type":"Ex"},
+[{"title":"Test 2 : taille exemple","topimg":"stim/taille0.svg","goodimg":"stim/taille0.svg","badimg":"stim/taille0alt.svg","good":"bottomleft","bad":"bottomright","type":"Ex"},
 {"title":"Test 2 : taille 1/12","topimg":"stim/taille1.svg","goodimg":"stim/taille1.svg","badimg":"stim/taille1alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_50"},
 {"title":"Test 2 : taille 2/12","topimg":"stim/taille2.svg","goodimg":"stim/taille2.svg","badimg":"stim/taille2alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_50"},
 {"title":"Test 2 : taille 3/12","topimg":"stim/taille3.svg","goodimg":"stim/taille3.svg","badimg":"stim/taille3alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_35"},

@@ -1,4 +1,4 @@
-[{"title":"Test 5 : position relative exemple","topimg":"stim/posrel0.svg","goodimg":"stim/posrel0.svg","badimg":"stim/posrel0alt.svg","good":"bottomleft","bad":"bottomleft","type":"Ex"},
+[{"title":"Test 5 : position relative exemple","topimg":"stim/posrel0.svg","goodimg":"stim/posrel0.svg","badimg":"stim/posrel0alt.svg","good":"bottomleft","bad":"bottomright","type":"Ex"},
 {"title":"Test 5 : position relative 1/12","topimg":"stim/posrel1.svg","goodimg":"stim/posrel1.svg","badimg":"stim/posrel1alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_50"},
 {"title":"Test 5 : position relative 2/12","topimg":"stim/posrel2.svg","goodimg":"stim/posrel2.svg","badimg":"stim/posrel2alt.svg","good":"bottomleft","bad":"bottomright","type":"taille_50"},
 {"title":"Test 5 : position relative 3/12","topimg":"stim/posrel3.svg","goodimg":"stim/posrel3.svg","badimg":"stim/posrel3alt.svg","good":"bottomright","bad":"bottomleft","type":"taille_35"},
