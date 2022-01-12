@@ -272,21 +272,29 @@ var readAllJSON = async function(jsonfiles) {
  */
 var testeAdressSousTest = function(adress) {
   jsonfiles = [];
+  var icn = document.createElement('link');
+  icn.rel = 'apple-touch-icon';
+  icn.href='apple-touch-icon.png';
   if (adress && (adress.indexOf("test=1")>0)) {
     jsonfiles.push('json/pvse1.json');
     document.title = "PVS1";
+    icn.href = 'pvse1.png';
   } else if (adress && (adress.indexOf("test=2")>0)) {
     jsonfiles.push('json/pvse2.json');
     document.title = "PVS2";
+    icn.href = 'pvse2.png';
   } else if (adress && (adress.indexOf("test=3")>0)) {
     jsonfiles.push('json/pvse3.json');
     document.title = "PVS3";
+    icn.href = 'pvse3.png';
   } else if (adress && (adress.indexOf("test=4")>0)) {
     jsonfiles.push('json/pvse4.json');
     document.title = "PVS4";
+    icn.href = 'pvse4.png';
   } else if (adress && (adress.indexOf("test=5")>0)) {
     jsonfiles.push('json/pvse5.json');
     document.title = "PVS5";
+    icn.href = 'pvse5.png';
   } else {
     jsonfiles.push('json/pvse1.json');
     jsonfiles.push('json/pvse2.json');
@@ -294,7 +302,9 @@ var testeAdressSousTest = function(adress) {
     jsonfiles.push('json/pvse4.json');
     jsonfiles.push('json/pvse5.json');
     document.title = "PVS";
+    icn.href = 'pvse2.png';
   }
+  document.head.appendChild(icn);
   readAllJSON(jsonfiles).then(function(){
     document.getElementById("title").innerHTML = listeTests[0].title;
     if (navigator.serviceWorker && navigator.serviceWorker.controller) {

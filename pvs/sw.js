@@ -1,5 +1,7 @@
 console.log('[Service Worker] registering');
-cacheName = 'cjt-v2.0.alpha28' ;
+appName = 'pvse';
+appVersion = '2.0.alpha31';
+cacheName =  appName + '-v' + appVersion ;
 alllist = [ 'Style.css',
             'index.html',
             'index.html?test=1',
@@ -96,7 +98,7 @@ self.addEventListener('install', (e) => {
         const keyList = await caches.keys();
         console.log('[Service Worker] Nettoyage du cache');
         await Promise.all(keyList.map(function(key) {
-            if (cachesToKeep.indexOf(key) === -1) {
+            if (cachesToKeep.indexOf(key) === -1 && key.indexOf(appName + "-v") === 0) {
               console.log('[Service Worker] Suppression de ', key);
               return caches.delete(key);
             }
