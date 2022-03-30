@@ -16,8 +16,7 @@ var listeRegles = [
   {"increment": 7, "repetitions" :8},
   {"increment": -1, "repetitions" :5},
   {"increment": 1, "repetitions" :5},
-  {"alternance": [-1,1], "repetitions" :5},
-  {"alternance": [-4,4], "repetitions" :5},
+  {"alternance": [-1,1], "repetitions" :5}
 ];
 
 // temps maximum pour repondre : une minute (60000 ms)
