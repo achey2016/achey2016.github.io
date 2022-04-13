@@ -1,6 +1,6 @@
 console.log('[Service Worker] registering');
 appName = 'bx';
-appVersion = '2.3';
+appVersion = '2.4';
 cacheName =  appName + '-v' + appVersion ;
 alllist = [ '../Style.css',
             'index.html',

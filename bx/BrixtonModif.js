@@ -14,8 +14,8 @@ var listeRegles = [
   {"increment": -3, "repetitions" :7},
   {"increment": 3, "repetitions" :7},
   {"increment": 7, "repetitions" :8},
-  {"increment": -1, "repetitions" :5},
-  {"increment": 1, "repetitions" :5},
+  {"increment": -1, "repetitions" :5, "txt" : "bis"},
+  {"increment": 1, "repetitions" :5, "txt" : "bis},
   {"alternance": [-1,1], "repetitions" :5}
 ];
 
@@ -40,6 +40,9 @@ var ajoute_nom = function(regle) {
     regle.nom = (regle.increment > 0 ) ? "plus " + regle.increment : "minus " + (- regle.increment) ;
   } else if(regle.alternance) {
     regle.nom = "alt " + regle.alternance.join("/");
+  }
+  if(regle.txt) {
+    regle.nom = regle.nom + " " + regle.txt;
   }
 };
 // Traduction des règles en liste de tests
@@ -277,7 +280,7 @@ var endTest = function(e) {
   for (var i=0; i< listeTests.length; i++) {
     if(listeTests[i].hasOwnProperty("valid")) {
       var infoligne=[];
-      colnames.forEach(x => infoligne.push(listeTests[i][x].toLocaleString ? listeTests[i][x].toLocaleString() : listeTests[i][x] ));
+      colnames.forEach(x => infoligne.push((listeTests[i][x] && listeTests[i][x].toLocaleString && (x!=="RT")) ? listeTests[i][x].toLocaleString() : listeTests[i][x] ));
       trialtable.tBodies[0].innerHTML +="<tr><td>"+ infoligne.join("</td><td>") + "</td></tr>";
       document.getElementById("allCSV").href += encodeURI(infoligne.join(";") + "\n");
     }
