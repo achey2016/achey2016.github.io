@@ -15,7 +15,7 @@ var listeRegles = [
   {"increment": 3, "repetitions" :7},
   {"increment": 7, "repetitions" :8},
   {"increment": -1, "repetitions" :5, "txt" : "bis"},
-  {"increment": 1, "repetitions" :5, "txt" : "bis},
+  {"increment": 1, "repetitions" :5, "txt" : "bis"},
   {"alternance": [-1,1], "repetitions" :5}
 ];
 
