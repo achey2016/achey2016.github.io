@@ -102,7 +102,7 @@ var endTest = function(e) {
   for (var i=0; i< listeTests.length; i++) {
     if(listeTests[i].hasOwnProperty("response")) {
       var infoligne=[];
-      colnames.forEach(x => infoligne.push(listeTests[i][x].toLocaleString ? listeTests[i][x].toLocaleString() : listeTests[i][x]));
+      colnames.forEach(x => infoligne.push((listeTests[i][x] && listeTests[i][x].toLocaleString && x!=="RT") ? listeTests[i][x].toLocaleString() : listeTests[i][x]));
       trialtable.tBodies[0].innerHTML +="<tr><td>"+ infoligne.join("</td><td>") + "</td></tr>";
       document.getElementById("allCSV").href += encodeURI(infoligne.join(";") + "\n");
     }
@@ -388,3 +388,4 @@ window.onload = function() {
 };
 
 
+:q
