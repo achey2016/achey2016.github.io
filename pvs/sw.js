@@ -1,6 +1,6 @@
 console.log('[Service Worker] registering');
 appName = 'pvse';
-appVersion = '2.0.alpha32';
+appVersion = '2.0.alpha32.1';
 cacheName =  appName + '-v' + appVersion ;
 alllist = [ 'Style.css',
             'index.html',
