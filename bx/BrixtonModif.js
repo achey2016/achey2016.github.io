@@ -16,11 +16,11 @@ var listeRegles = [
   {"increment": 7, "repetitions" :8},
   {"increment": -1, "repetitions" :5, "txt" : "bis"},
   {"increment": 1, "repetitions" :5, "txt" : "bis"},
-  {"alternance": [-1,1], "repetitions" :5}
+  {"alternance": [-1,1], "repetitions" :10}
 ];
 
-// temps maximum pour repondre : une minute (60000 ms)
-var maxwait = 60000;
+// temps maximum pour repondre : une demi-minute (30000 ms)
+var maxwait = 30000;
 var checkTimeoutInterval = false;
 
 var applique_regle = function(from,regle) {
@@ -285,15 +285,20 @@ var endTest = function(e) {
       document.getElementById("allCSV").href += encodeURI(infoligne.join(";") + "\n");
     }
   }
-  // backup localStorage
-  var cjt = getCjtStorage();
-  cjt.sessions.push(document.location.href + '_' + listeTests[0].debut.toLocaleString());
-  cjt.testdata.push(listeTests);
-  setCjtStorage(cjt);
-  document.getElementById("cjtJSON").href += encodeURI(JSON.stringify(cjt) + "\n");
+  if(listeTests[0].debut) {
+    // backup localStorage
+    var cjt = getCjtStorage();
+    cjt.sessions.push(document.location.href + '_' + listeTests[0].debut.toLocaleString());
+    cjt.testdata.push(listeTests);
+    setCjtStorage(cjt);
+    document.getElementById("cjtJSON").href += encodeURI(JSON.stringify(cjt) + "\n");
   
-  // modification du graphique
-  maj_graphique(listeTests);
+    // modification du graphique
+    maj_graphique(listeTests);
+  } else {
+    // retirer le graphique en l'absence de données
+    document.getElementById("error_rate").parentElement.remove();
+  }
 };
 
 // en cas d'erreur de chargement
@@ -375,7 +380,7 @@ var commencer = function() {
   document.getElementById("infosuj").hidden = true;
   document.getElementById("testscreen").hidden = false;
   // verifier l'absence d'interruption prolongee
-  checkTimeoutInterval = setInterval(checkTimeout,maxwait);
+  checkTimeoutInterval = setInterval(checkTimeout,1000);
   // premier trial
   gonext();
   // renvoyer false pour eviter le rechargement de la page a la soumission du formulaire
@@ -392,7 +397,13 @@ var maj_cache = function(e) {
  * Teste si un sous-test est demandé dans l'adresse
  */
 var testeAdressSousTest = function(adress) {
-  document.title = "Brixton modifié";
+    document.title = "Brixton_modif"; 
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        // demander la version
+        navigator.serviceWorker.controller.postMessage('version');
+    } else {
+        document.getElementById("title").insertAdjacentText("afterend", "Absence de contrôle du cache\n");
+    }
 };
 
 /*
