@@ -1,4 +1,4 @@
-[{"title":"Test 4 : milieu exemple","topimg":"stim/milieu.svg?i=0","goodimg":"stim/milieu.svg?i=0","badimg":"stim/milieu0alt.svg?i=0","good":"bottomleft","bad":"bottomright","type":"Ex"},
+[{"title":"Test 4 : milieu exemple","topimg":"stim/milieu.svg?i=0","goodimg":"stim/milieu.svg?i=0","badimg":"stim/milieu0alt.svg","good":"bottomleft","bad":"bottomright","type":"Ex"},
 {"title":"Test 4 : milieu 1/12","topimg":"stim/milieu.svg?i=1","goodimg":"stim/milieu.svg?i=1","badimg":"stim/milieu1alt.svg","good":"bottomleft","bad":"bottomright","type":"milieu_9"},
 {"title":"Test 4 : milieu 2/12","topimg":"stim/milieu.svg?i=2","goodimg":"stim/milieu.svg?i=2","badimg":"stim/milieu2alt.svg","good":"bottomright","bad":"bottomleft","type":"milieu_9"},
 {"title":"Test 4 : milieu 3/12","topimg":"stim/milieu.svg?i=3","goodimg":"stim/milieu.svg?i=3","badimg":"stim/milieu3alt.svg","good":"bottomleft","bad":"bottomright","type":"milieu_6"},
