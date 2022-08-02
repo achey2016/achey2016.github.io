@@ -3,8 +3,8 @@ var listeTests = [];
 
 var currentTest=-1;
 var score = 0;
-// temps maximum pour repondre : une minute (60000 ms)
-var maxwait = 60000;
+// temps maximum pour repondre : 30s (30000 ms)
+var maxwait = 30000;
 var checkTimeoutInterval = false;
 
 // enregistrer la réponse
@@ -245,7 +245,7 @@ var commencer = function() {
   document.getElementById("infosuj").hidden = true;
   document.getElementById("testscreen").hidden = false;
   // verifier l'absence d'interruption prolongee
-  checkTimeoutInterval = setInterval(checkTimeout,maxwait);
+  checkTimeoutInterval = setInterval(checkTimeout,1000);
   // premier trial
   gonext();
   // renvoyer false pour eviter le rechargement de la page a la soumission du formulaire
