@@ -16,12 +16,12 @@ button, input[type="submit"], input[type="button"] {
   border-radius: 20px;
   border-width: 3px;
   margin-left: 6%;
-  width: 41%;
   font-size: 48px;
   font-weight: bold;
-  font-family: Noteworthy;
+  font-family: sans-serif;
   background-color: gold;
   padding: 4%;
+  accent-color: transparent;
 }
 button:nth-of-type(2n+1) {
   background-color: chartreuse;
@@ -196,8 +196,15 @@ input:required:invalid, input:focus:invalid {
 	margin: 0 3vw;
 	min-height: 20vw;
 	background: transparent;
+	-webkit-appearance: none;
+}
+.slider::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+	background: transparent;
+	cursor: pointer;
 }
 .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
 	width: 4vw;
 	height: 15vw;
 	background: transparent;
@@ -235,4 +242,34 @@ input:required:invalid, input:focus:invalid {
   float: right;
 	text-align: right;
   font-size: 1.5em;
+}
+.nabox {
+  float: left;
+  width: 45%;
+  font-size: 2em;
+  margin-left: 5%;
+}
+.nabox input[type="checkbox"] {
+  width: 1em;
+  height: 2em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.nabox input[type='checkbox']:after {
+  content: "\002610";/* "☐" */
+  font-size: 2em;
+  font-family: monospace ;
+  font-weight: bold;
+  position:relative;
+  left:0;
+  bottom:0;
+}
+
+.nabox input[type='checkbox']:checked:after {
+  content: "\002612"; /* " ☑☒⨉✔ "; \002612 \002611;*/
 }

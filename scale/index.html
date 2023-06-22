@@ -13,26 +13,35 @@
 </head>
 <body>
   <h1 id="title">Test 1 : échelle</h1>
-  <div id="infosuj" hidden>
+  <div id="infosuj" >
       <h2>Code participant :</h2>
       <form action="" method="get" onsubmit="commencer(); return(false)">
       <label for="Participant">Code participant (5 caractères) :</label>
       <input type="text" id="participant_code" name="participant_code" pattern="[A-Za-z0-9]{5}" size="5" title="Code participant en 5 caractères" value="SUJET"><br><br>
       <input type="submit" value="Commencer">
       </form>
+      <h2> Questionnaire : </h2>
+      <input type="file" value="confiance.csv" accept="text/csv" id="selectQ">
   </div>
   <div id="pausescreen" hidden>
     <h2 id="pausetxt">PAUSE</h2>
     <input type="button" name="reprendre" id="reprendre" value="reprendre" />
     <input type="button" name="terminer" id="terminer" value="terminer" />
   </div>
-  <div id="testscreen" >
+  <div id="testscreen" hidden>
     <div class="slidecontainer">
       <p class="sliderq" id="question">Avez-vous confiance ?</p>
       <span class="sliderl">Pas du tout</span>
       <span class="sliderr">Tout à fait</span>
       <div class="sliderbg">
         <input type="range" min="0" max="10" value="5" class="slider" id="scale">
+      </div>
+      <div class="nabox">
+        <input type="checkbox" name="NA" id="NA" checked="false">
+        <label for="NA">Non applicable</label>
+      </div>
+      <div class="OKbox">
+        <input type="submit" value="Suivant" id="OKnext">
       </div>
     </div>
     

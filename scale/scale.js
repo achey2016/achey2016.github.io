@@ -5,7 +5,12 @@
 // Liste des questions
 var listeQuestions = [
   "Avez-vous confiance ?",
-  "Avez-vous encore confiance ?"
+  "Avez-vous encore confiance ?",
+  "Perdez-vous confiance ?",
+  "Peut-on avoir confiance ?",
+  "Doit-on avoir confiance ?",
+  "Reprenez-vous confiance ?",
+  "Améliore-t-on la confiance ?"
 ];
 
 // temps maximum pour repondre : dix minutes (600000 ms)
@@ -26,11 +31,28 @@ var setinfotrial = function(e) {
   if(listeTests[currentTest].debut) {
     // infosTrial
     if (currentTest>=0 && currentTest < listeTests.length && e && e.currentTarget ) {
-      listeTests[currentTest].response = e.currentTarget.value;
-      score = score + listeTests[currentTest].response;
-      listeTests[currentTest].fin = new Date();
-      listeTests[currentTest].RT = listeTests[currentTest].fin.getTime() - listeTests[currentTest].debut.getTime();
-      gonext();
+      // Si non applicable
+      if (e.currentTarget.id === "NA") {
+        if (e.currentTarget.checked) {
+          listeTests[currentTest].response = "NA";
+          document.getElementById("OKnext").disabled = false;
+        } else {
+          document.getElementById("OKnext").disabled = true;
+        }
+      // Si choix sur l'échelle  
+      } else if(e.type === "change") {
+        listeTests[currentTest].response = e.currentTarget.value;
+        document.getElementById("OKnext").disabled = false;
+      } else {
+        if (e.currentTarget.value) {
+          // réponse d'avant (utile si inchangé : il n'y aura pas d'evt change)
+          listeTests[currentTest].response = e.currentTarget.value;
+        }
+        // timing au début du toucher
+        listeTests[currentTest].fin = new Date();
+        listeTests[currentTest].RT = listeTests[currentTest].fin.getTime() - listeTests[currentTest].debut.getTime();
+        document.getElementById("OKnext").disabled = false;
+      }
     } 
   } 
 };
@@ -81,7 +103,7 @@ var endTest = function(e) {
     document.getElementById("allCSV").download=csv_name;
     document.getElementById("allCSV").innerHTML = "Enregistrer " + csv_name;
     // rappel score sans le premier item
-    document.getElementById("score").innerHTML = "Score : " + score  + " / " + (listeTests.length - 1);
+    document.getElementById("score").innerHTML = "Score : " + score  + " / " + listeTests.length*10;
     document.getElementById("score").innerHTML += "<br>Participant : " + listeTests[0].participant;
     document.getElementById("score").innerHTML += "<br>Début : " + listeTests[0].debut.toLocaleString();
     if(listeTests[listeTests.length-1].fin){
@@ -127,7 +149,10 @@ var errormsg = function(e, msg) {
 // définition de la fonction pour aller au test suivant : gonext
 var gonext = function(e) {
   console.log("gonext : " + currentTest);
-  
+  // ajout de la dernière réponse au score
+  if(currentTest>=0) {
+    score = score + parseInt(listeTests[currentTest].response, 10);
+  }
   currentTest = currentTest+1;
   if (currentTest < listeTests.length) {
     // empecher zoom et defilements
@@ -137,7 +162,9 @@ var gonext = function(e) {
     title.innerHTML = "Score : " + score;
     title.hidden = true;
     document.getElementById("scale").value = 5;
+    document.getElementById("NA").checked = false;
     document.getElementById("question").innerHTML = listeTests[currentTest].question;
+    document.getElementById("OKnext").disabled = true;
     // c'est parti
     listeTests[currentTest].debut=new Date();
   } else {
@@ -220,6 +247,19 @@ var testeAdress = function() {
 
     testeAdressSousTest(adress);
 };
+// changement de questionnaire
+async function changeQuestions(e) {
+  if (e && e.target && e.target.files && e.target.files.length === 1) {
+    console.log(e.target.files[0]);
+    var txt = await e.target.files[0].text();
+    var csv_lines = txt.split('\n');
+    csv_header = csv_lines.shift();
+    csv_colnames = csv_header.split(';')
+    csv_colnames[4] = 'question';
+    listeTests = csv_lines.map(q => ({'question': q.split('\;')[4]}));
+  }
+  
+}
 // s'il n'y a pas de mise a jour, charger le test
 var onCacheOK = function() {
   // si le sous-test est specifie, adapter la liste des tests
@@ -228,9 +268,17 @@ var onCacheOK = function() {
   if( 'ontouchstart' in window) {
     document.getElementById("scale").addEventListener('touchstart', setinfotrial, true);
   } else {
-    document.getElementById("scale").addEventListener('click', setinfotrial, true);
+    document.getElementById("scale").addEventListener('mousedown', setinfotrial, true);
   }
-  commencer();
+  document.getElementById("scale").addEventListener('change', setinfotrial, true);
+  document.getElementById("NA").addEventListener('change', setinfotrial, true);
+  document.getElementById("OKnext").disabled = true;
+  document.getElementById("OKnext").addEventListener('click', gonext, true);
+  document.getElementById("selectQ").addEventListener('change', changeQuestions, false);
+  if (document.getElementById("infosuj").hidden) {
+    // Le lancement est manuel depuis la page infosuj sauf si elle est masquée
+    commencer();
+  }
 }
 // log message from serviceWorker
 var logMsg = function(evt) {
