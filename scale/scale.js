@@ -102,10 +102,11 @@ var endTest = function(e) {
   if(listeTests[0].debut) {
     var date_heure = listeTests[0].debut.toISOString().substr(0,16).replace(/-|T|:/g,"");
     var csv_name = listeTests[0].participant + "_" + document.title + "_" + date_heure + ".csv";
+    var scoremax = listeTests.filter((q) => (q.response!=="NA")).length*10;
     document.getElementById("allCSV").download=csv_name;
     document.getElementById("allCSV").innerHTML = "Enregistrer " + csv_name;
     // rappel score sans le premier item
-    document.getElementById("score").innerHTML = "Score : " + score  + " / " + listeTests.length*10;
+    document.getElementById("score").innerHTML = "Score : " + score  + " / " + scoremax;
     document.getElementById("score").innerHTML += "<br>Participant : " + listeTests[0].participant;
     document.getElementById("score").innerHTML += "<br>Début : " + listeTests[0].debut.toLocaleString();
     if(listeTests[listeTests.length-1].fin){
@@ -152,7 +153,7 @@ var errormsg = function(e, msg) {
 var gonext = function(e) {
   console.log("gonext : " + currentTest);
   // ajout de la dernière réponse au score
-  if(currentTest>=0) {
+  if(currentTest>=0 && listeTests[currentTest].response && (listeTests[currentTest].response !== "NA")) {
     score = score + parseInt(listeTests[currentTest].response, 10);
   }
   currentTest = currentTest+1;
