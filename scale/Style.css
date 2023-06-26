@@ -197,6 +197,7 @@ input:required:invalid, input:focus:invalid {
 	min-height: 20vw;
 	background: transparent;
 	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
 }
 .slider::-webkit-slider-runnable-track {
   -webkit-appearance: none;

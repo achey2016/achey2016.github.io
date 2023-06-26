@@ -40,18 +40,20 @@ var setinfotrial = function(e) {
           document.getElementById("OKnext").disabled = true;
         }
       // Si choix sur l'échelle  
-      } else if(e.type === "change") {
-        listeTests[currentTest].response = e.currentTarget.value;
-        document.getElementById("OKnext").disabled = false;
       } else {
+        // décocher NA, noter la réponse, autoriser le passage à la suite
+        document.getElementById("NA").checked = false;
         if (e.currentTarget.value) {
-          // réponse d'avant (utile si inchangé : il n'y aura pas d'evt change)
+          // pour mousedown ou touchstart, "value" n'a pas encore changé
+          // mais il faut quand même l'enregistrer au cas où elle ne changerait pas
           listeTests[currentTest].response = e.currentTarget.value;
         }
-        // timing au début du toucher
-        listeTests[currentTest].fin = new Date();
-        listeTests[currentTest].RT = listeTests[currentTest].fin.getTime() - listeTests[currentTest].debut.getTime();
         document.getElementById("OKnext").disabled = false;
+        // timing au début du toucher ou du clic
+        if((e.type === "touchstart") || (e.type === "mousedown")) {
+          listeTests[currentTest].fin = new Date();
+          listeTests[currentTest].RT = listeTests[currentTest].fin.getTime() - listeTests[currentTest].debut.getTime();
+        }
       }
     } 
   } 
@@ -257,11 +259,23 @@ async function changeQuestions(e) {
     csv_colnames = csv_header.split(';')
     csv_colnames[4] = 'question';
     listeTests = csv_lines.map(q => ({'question': q.split('\;')[4]}));
+    var cjt = getCjtStorage();
+    cjt.questions = { 
+      'filename': e.target.files[0].name, 
+      'listeTests': listeTests
+    };
+    setCjtStorage(cjt);
   }
   
 }
 // s'il n'y a pas de mise a jour, charger le test
 var onCacheOK = function() {
+  // Verifier s'il y a des questions enregistrees
+  var cjt = getCjtStorage();
+  if (cjt.questions) {
+    document.getElementById("selectQ").defaultValue = cjt.questions.filename;
+    listeTests = cjt.questions.listeTests;
+  }
   // si le sous-test est specifie, adapter la liste des tests
   testeAdress();
   // lorsqu'on clique dessus enregistrer la réponse
