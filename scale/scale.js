@@ -1,16 +1,12 @@
 // Échelles à fort contraste pour Annie Moulin, CNRS
-// Code HTML par Anne Cheylus, CNRS
+// Code HTML/javascript/CSS par Anne Cheylus, CNRS
 
 
 // Liste des questions
 var listeQuestions = [
-  "Avez-vous confiance ?",
-  "Avez-vous encore confiance ?",
-  "Perdez-vous confiance ?",
-  "Peut-on avoir confiance ?",
-  "Doit-on avoir confiance ?",
-  "Reprenez-vous confiance ?",
-  "Améliore-t-on la confiance ?"
+  "Choisissez une valeur entre 0 et 10",
+  "Choisissez à nouveau",
+  "Choississez une dernière fois"
 ];
 
 // temps maximum pour repondre : dix minutes (600000 ms)
@@ -168,6 +164,16 @@ var gonext = function(e) {
     document.getElementById("NA").checked = false;
     document.getElementById("question").innerHTML = listeTests[currentTest].question;
     document.getElementById("OKnext").disabled = true;
+    if (listeTests[currentTest].reponse0) {
+      document.getElementById("reponse0").innerHTML = listeTests[currentTest].reponse0;
+      document.getElementById("reponse10").innerHTML = listeTests[currentTest].reponse10;
+    }
+    // couleur de fond d'écran en fonction du test
+    if (listeTests[currentTest].type_data) {
+      document.getElementById("testscreen").className = listeTests[currentTest].type_data.replace(/[0-9]*/,"");
+    } else {
+      document.getElementById("testscreen").className = "";
+    }
     // c'est parti
     listeTests[currentTest].debut=new Date();
   } else {
@@ -255,11 +261,14 @@ async function changeQuestions(e) {
   if (e && e.target && e.target.files && e.target.files.length === 1) {
     console.log(e.target.files[0]);
     var txt = await e.target.files[0].text();
-    var csv_lines = txt.split('\n');
+    var csv_lines = txt.replaceAll('\r','').split('\n');
     csv_header = csv_lines.shift();
+    // les noms des champs sont dans la 1ère ligne, séparés par des ; 
     csv_colnames = csv_header.split(';')
-    csv_colnames[4] = 'question';
-    listeTests = csv_lines.map(q => ({'question': q.split('\;')[4]}));
+    // pour chaque ligne, les valeurs sont séparées par des ; 
+    // on les regroupe dans un objet
+    listeTests = csv_lines.map(q => (Object.assign(...csv_colnames.map((col,i) => ({[col]: q.split(';')[i]})))));
+    listeTests = listeTests.filter(t => (t.question));
     var cjt = getCjtStorage();
     cjt.questions = { 
       'filename': e.target.files[0].name, 

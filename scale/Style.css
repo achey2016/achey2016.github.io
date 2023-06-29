@@ -79,7 +79,7 @@ svg {
 }
 #testscreen {
   position: fixed;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   top: 0;
   left: 0;
   bottom: 0;
@@ -260,7 +260,7 @@ input:required:invalid, input:focus:invalid {
   cursor: pointer;
   font-size: 2em;
 }
-
+/* choix pour l'image du carré décoché */
 .nabox input[type='checkbox']:after {
   content: "\002610";/* "☐" */
   font-size: 2em;
@@ -270,7 +270,14 @@ input:required:invalid, input:focus:invalid {
   left:0;
   bottom:0;
 }
-
+/* choix pour l'image du carré coché */
 .nabox input[type='checkbox']:checked:after {
-  content: "\002612"; /* " ☑☒⨉✔ "; \002612 \002611;*/
+  content: "\002611"; /* " ☑☒⨉✔ "; \002612 \002611;*/
+}
+/* couleur de fond en fonction du test */
+.iSSQ {
+  background-color: #f0f0d0;
+}
+.EEAS {
+  background-color: #e0f0ff;
 }
