@@ -176,6 +176,9 @@ input:required:invalid, input:focus:invalid {
   font-size: x-large;
   text-transform: uppercase;
 }
+#question {
+  min-height: 320px;
+}
 .slidecontainer {
   width: 90vw;
 	font-size: 1em;
@@ -227,20 +230,29 @@ input:required:invalid, input:focus:invalid {
 	border-style: solid;
 	border-radius: 3vw;
 }
+.context {
+  font-size: 0.9em;
+  text-align: left;
+}
 .sliderq {
   font-size: 2em;
   text-align: center;
   width: 100%;
 }
+.sliderc {
+  font-size: 2em;
+  text-align: left;
+  width: 100%;
+}
 .sliderl{
-  width:15%;
+  width:25%;
   display: block;
   float: left;
 	text-align: left;
   font-size: 1.5em;
 }
 .sliderr{
-  width:15%;
+  width:25%;
   display: block;
   float: right;
 	text-align: right;

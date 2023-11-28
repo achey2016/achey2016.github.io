@@ -145,6 +145,14 @@ var errormsg = function(e, msg) {
   listeTests[currentTest].response = msg;
   endTest(e);
 };
+// scalevisibility('hidden') ou scalevisibility('visible')
+var scalevisibility = function(visible) {
+  block_or_none = (visible == 'hidden')?'none':'block';
+  document.getElementById("reponse0").style.display = block_or_none;
+  document.getElementById("reponse10").style.display = block_or_none;
+  document.getElementById("scale").parentElement.style.display = block_or_none;
+  document.getElementById("NA").parentElement.style.visibility = visible.replace("hidden","collapse");
+};
 // définition de la fonction pour aller au test suivant : gonext
 var gonext = function(e) {
   console.log("gonext : " + currentTest);
@@ -163,11 +171,26 @@ var gonext = function(e) {
     document.getElementById("scale").value = 5;
     document.getElementById("NA").checked = false;
     document.getElementById("question").innerHTML = listeTests[currentTest].question;
-    document.getElementById("OKnext").disabled = true;
-    if (listeTests[currentTest].reponse0) {
-      document.getElementById("reponse0").innerHTML = listeTests[currentTest].reponse0;
-      document.getElementById("reponse10").innerHTML = listeTests[currentTest].reponse10;
+    if (listeTests[currentTest].type=="consigne") {
+      // pour les consignes, masquer l'échelle et aligner à gauche sauf pour le titre
+      scalevisibility("hidden");
+      document.getElementById("OKnext").disabled = false;
+      if (listeTests[currentTest].sous_echelle=="Titre") {
+        document.getElementById("question").className = "sliderq";
+      } else {
+        document.getElementById("question").className = "sliderc";
+      }
+    } else {
+      // pour les questions, montrer l'échelle et centrer la question
+      scalevisibility("visible");
+      document.getElementById("OKnext").disabled = true;
+      document.getElementById("question").className = "sliderq";
+      if (listeTests[currentTest].reponse0) {
+        document.getElementById("reponse0").innerHTML = listeTests[currentTest].reponse0;
+        document.getElementById("reponse10").innerHTML = listeTests[currentTest].reponse10;
+      }
     }
+    
     // couleur de fond d'écran en fonction du test
     if (listeTests[currentTest].type_data) {
       document.body.className = listeTests[currentTest].type_data.replace(/[0-9]*/,"");
