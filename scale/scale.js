@@ -170,9 +170,9 @@ var gonext = function(e) {
     }
     // couleur de fond d'écran en fonction du test
     if (listeTests[currentTest].type_data) {
-      document.getElementById("testscreen").className = listeTests[currentTest].type_data.replace(/[0-9]*/,"");
+      document.body.className = listeTests[currentTest].type_data.replace(/[0-9]*/,"");
     } else {
-      document.getElementById("testscreen").className = "";
+      document.body.className = "";
     }
     // c'est parti
     listeTests[currentTest].debut=new Date();

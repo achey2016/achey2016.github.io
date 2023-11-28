@@ -79,7 +79,6 @@ svg {
 }
 #testscreen {
   position: fixed;
-  /* background-color: #f0f0f0; */
   top: 0;
   left: 0;
   bottom: 0;
@@ -182,6 +181,9 @@ input:required:invalid, input:focus:invalid {
 	font-size: 1em;
 	font-family: sans-serif;
 	font-weight: bold;
+	position: fixed;
+	bottom: 0;
+	left: 5%;
 }
 .sliderbg {
 	width: 90vw;
@@ -226,7 +228,7 @@ input:required:invalid, input:focus:invalid {
 	border-radius: 3vw;
 }
 .sliderq {
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
   width: 100%;
 }
