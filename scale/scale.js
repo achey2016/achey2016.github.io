@@ -18,7 +18,6 @@ var checkTimeoutInterval = false;
 var listeTests = listeQuestions.map(q => ({'question': q}));
 
 var currentTest=-1;
-var score = 0;
 
 // enregistrer la réponse
 var setinfotrial = function(e) {
@@ -83,6 +82,24 @@ var clearCjtStorage = function() {
   myStorage.removeItem('cjt');
   return "0";
 };
+// calcul des scores par sous-echelle
+var calculScoresSousEchelle = function(ltt,se) {
+  let lt = ltt.filter(t =>((t.type!='consigne') & (t.sous_echelle==se) & t.hasOwnProperty('response')));
+  let score = lt.map(x => parseInt(x.response, 10)).reduce((x,y)=>(x+y),0);
+  return(score/lt.length);
+};
+var calculScoresTest = function(td) {
+  let lt = listeTests.filter(t =>((t.type!='consigne') & (t.type_data==td) & t.hasOwnProperty('response')));
+  let se = Array.from(new Set(lt.filter(t=>(t.type!='consigne')).map(t => (t.sous_echelle))));
+  let score = se.reduce((x,y) => (Object.assign(x,Object.fromEntries([[y,calculScoresSousEchelle(lt,y)]]))),{});
+  return(score);
+};
+var strScores = function(td) {
+  score = calculScoresTest(td);
+  str = "&nbsp;" + td + "<br>" ;
+  str += Object.entries(score).map(x=>('&nbsp;&nbsp;' + x[0] + ' : ' + x[1] + '<br>')).reduce((x,y)=>(x+y));
+  return(str);
+};
 
 // fin du test
 var endTest = function(e) {
@@ -98,11 +115,12 @@ var endTest = function(e) {
   if(listeTests[0].debut) {
     var date_heure = listeTests[0].debut.toISOString().substr(0,16).replace(/-|T|:/g,"");
     var csv_name = listeTests[0].participant + "_" + document.title + "_" + date_heure + ".csv";
-    var scoremax = listeTests.filter((q) => (q.response!=="NA")).length*10;
     document.getElementById("allCSV").download=csv_name;
     document.getElementById("allCSV").innerHTML = "Enregistrer " + csv_name;
-    // rappel score sans le premier item
-    document.getElementById("score").innerHTML = "Score : " + score  + " / " + scoremax;
+    // scores par test
+    document.getElementById("score").innerHTML = "Scores :";
+    var td = Array.from(new Set(listeTests.filter(t=>(t.type!='consigne')).map(t => (t.type_data))));
+    td.forEach(x => (document.getElementById("score").innerHTML += "<br>" + x + " : " + strScores(x)));
     document.getElementById("score").innerHTML += "<br>Participant : " + listeTests[0].participant;
     document.getElementById("score").innerHTML += "<br>Début : " + listeTests[0].debut.toLocaleString();
     if(listeTests[listeTests.length-1].fin){
@@ -114,16 +132,18 @@ var endTest = function(e) {
   // table récapitulative
   var trialtable = document.getElementById("trialtable");
   var colnames = [
-    "participant","question","response","RT"
+    "participant","type_data","sous_echelle","nom_var","num_question","question","response","RT"
   ];
   trialtable.innerHTML="<thead><tr><th>"+ colnames.join("</th><th>")+"</th></tr></thead><tbody></tbody>";
   console.log(trialtable);
   document.getElementById("allCSV").href+= encodeURI(colnames.join(";")+"\n");
   for (var i=0; i< listeTests.length; i++) {
+    if(listeTests[i].type!="consigne") {
       var infoligne=[];
       colnames.forEach(x => infoligne.push((listeTests[i][x] && listeTests[i][x].toLocaleString && (x!=="RT")) ? listeTests[i][x].toLocaleString() : listeTests[i][x] ));
       trialtable.tBodies[0].innerHTML +="<tr><td>"+ infoligne.join("</td><td>") + "</td></tr>";
       document.getElementById("allCSV").href += encodeURI(infoligne.join(";") + "\n");
+    }
   }
   if(listeTests[0].debut) {
     // backup localStorage
@@ -156,17 +176,11 @@ var scalevisibility = function(visible) {
 // définition de la fonction pour aller au test suivant : gonext
 var gonext = function(e) {
   console.log("gonext : " + currentTest);
-  // ajout de la dernière réponse au score
-  if(currentTest>=0 && listeTests[currentTest].response && (listeTests[currentTest].response !== "NA")) {
-    score = score + parseInt(listeTests[currentTest].response, 10);
-  }
   currentTest = currentTest+1;
   if (currentTest < listeTests.length) {
     // empecher zoom et defilements
     preventDefaultGestures = true;
-    // modifier le titre
-    var title = document.getElementById("title");
-    title.innerHTML = "Score : " + score;
+    // masquer le titre
     title.hidden = true;
     document.getElementById("scale").value = 5;
     document.getElementById("NA").checked = false;
