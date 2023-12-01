@@ -84,20 +84,21 @@ var clearCjtStorage = function() {
 };
 // calcul des scores par sous-echelle
 var calculScoresSousEchelle = function(ltt,se) {
-  let lt = ltt.filter(t =>((t.type!='consigne') & (t.sous_echelle==se) & t.hasOwnProperty('response')));
+  let lt = ltt.filter(t =>((t.type!='consigne') && (t.sous_echelle==se) && t.hasOwnProperty('response')));
   let score = lt.map(x => parseInt(x.response, 10)).reduce((x,y)=>(x+y),0);
   return(score/lt.length);
 };
 var calculScoresTest = function(td) {
-  let lt = listeTests.filter(t =>((t.type!='consigne') & (t.type_data==td) & t.hasOwnProperty('response')));
+  let lt = listeTests.filter(t =>((t.type!='consigne') && (t.type_data==td) && t.hasOwnProperty('response')));
   let se = Array.from(new Set(lt.filter(t=>(t.type!='consigne')).map(t => (t.sous_echelle))));
   let score = se.reduce((x,y) => (Object.assign(x,Object.fromEntries([[y,calculScoresSousEchelle(lt,y)]]))),{});
   return(score);
 };
 var strScores = function(td) {
   score = calculScoresTest(td);
-  str = "&nbsp;" + td + "<br>" ;
-  str += Object.entries(score).map(x=>('&nbsp;&nbsp;' + x[0] + ' : ' + x[1] + '<br>')).reduce((x,y)=>(x+y));
+  str = "<h3>" + td + "</h3><ul>" ;
+  str += Object.entries(score).map(x=>('<li>' + x[0] + ' : ' + x[1] + '<br>')).reduce((x,y)=>(x+y));
+  str += "</ul>";
   return(str);
 };
 
@@ -118,9 +119,9 @@ var endTest = function(e) {
     document.getElementById("allCSV").download=csv_name;
     document.getElementById("allCSV").innerHTML = "Enregistrer " + csv_name;
     // scores par test
-    document.getElementById("score").innerHTML = "Scores :";
+    document.getElementById("score").innerHTML = "";
     var td = Array.from(new Set(listeTests.filter(t=>(t.type!='consigne')).map(t => (t.type_data))));
-    td.forEach(x => (document.getElementById("score").innerHTML += "<br>" + x + " : " + strScores(x)));
+    td.forEach(x => (document.getElementById("score").innerHTML += strScores(x)));
     document.getElementById("score").innerHTML += "<br>Participant : " + listeTests[0].participant;
     document.getElementById("score").innerHTML += "<br>Début : " + listeTests[0].debut.toLocaleString();
     if(listeTests[listeTests.length-1].fin){
@@ -175,6 +176,9 @@ var scalevisibility = function(visible) {
 };
 // définition de la fonction pour aller au test suivant : gonext
 var gonext = function(e) {
+  if ( (currentTest > 0) && !listeTests[currentTest].hasOwnProperty('fin')) {
+    listeTests[currentTest].fin = new Date();
+  }
   console.log("gonext : " + currentTest);
   currentTest = currentTest+1;
   if (currentTest < listeTests.length) {
@@ -248,9 +252,27 @@ var checkTimeout = function() {
   }
 };
 
-
+// randomiser l'ordre de présentation des test s'il y a un pivot
+var randomiser = function() {
+  // randomisation sur les minutes du début (si paires)
+  let now = new Date();
+  if ((now.getMinutes() % 2) == 1) {
+    return;
+  }
+  ipivot = listeTests.map((t,i)=>(t.type_data=="Pivot"?i:-1)).filter(x=>(x>=0));
+  imerci = listeTests.map((t,i)=>(t.type_data=="Merci"?i:-1)).filter(x=>(x>=0));
+  // randomisation sur les minutes du début (si paires)
+  if ((ipivot.length == 1) && (imerci.length == 1) && (imerci[0] = listeTests.length-1)) {
+    ipivot = ipivot[0];
+    imerci = imerci[0];
+    // échanger merci et pivot puis 1ère et 2ème partie
+    listeTests = listeTests.concat(listeTests.splice(ipivot,1,listeTests.splice(imerci,1)[0]));
+    listeTests = listeTests.concat(listeTests.splice(0,ipivot+1));
+  }
+};
 // lire le code participant et commencer l'essai
 var commencer = function() {
+  randomiser();
   listeTests.forEach(x => x.participant = document.getElementById("participant_code").value);
   console.log(listeTests[0].participant);
   // masquer le clavier et le formulaire, afficher le test
@@ -265,14 +287,8 @@ var commencer = function() {
   return(false); 
 };
 
-// mise a jour du cache pour les ipads (obsolète mais utile si ancienne version installée sur l'ipad)
-var maj_cache = function(e) {
-    window.applicationCache.swapCache();
-    endTest(e);
-};
-
 /*
- * Teste si un sous-test est demandé dans l'adresse
+ * Teste si un sous-test est demandé dans l'adresse (non implémenté)
  */
 var testeAdressSousTest = function(adress) {
     document.title = "Échelle"; 
@@ -306,6 +322,9 @@ async function changeQuestions(e) {
     // on les regroupe dans un objet
     listeTests = csv_lines.map(q => (Object.assign(...csv_colnames.map((col,i) => ({[col]: q.split(';')[i]})))));
     listeTests = listeTests.filter(t => (t.question));
+    if(document.getElementById("cacheinfo")) {
+      document.getElementById("cacheinfo").remove();
+    } 
     var cjt = getCjtStorage();
     cjt.questions = { 
       'filename': e.target.files[0].name, 
@@ -321,9 +340,11 @@ var onCacheOK = function() {
   var cjt = getCjtStorage();
   if (cjt.questions) {
     document.getElementById("selectQ").defaultValue = cjt.questions.filename;
+    document.getElementById("selectQ").insertAdjacentHTML("afterend", 
+    "<div id='cacheinfo'>En mémoire : " + cjt.questions.filename + "</div>");
     listeTests = cjt.questions.listeTests;
   }
-  // si le sous-test est specifie, adapter la liste des tests
+  // si le sous-test est specifie, adapter la liste des tests (non implémenté)
   testeAdress();
   // lorsqu'on clique dessus enregistrer la réponse
   if( 'ontouchstart' in window) {
