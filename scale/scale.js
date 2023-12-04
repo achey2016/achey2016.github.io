@@ -11,6 +11,7 @@ var listeQuestions = [
 
 // temps maximum pour repondre : dix minutes (600000 ms)
 var maxwait = 600000;
+// initialisation de la référence au callback du timeout
 var checkTimeoutInterval = false;
 
 
@@ -85,8 +86,11 @@ var clearCjtStorage = function() {
 // calcul des scores par sous-echelle
 var calculScoresSousEchelle = function(ltt,se) {
   let lt = ltt.filter(t =>((t.type!='consigne') && (t.sous_echelle==se) && t.hasOwnProperty('response')));
+  let ltna = lt.filter(t => (t.response==="NA")) ;
+  lt = lt.filter(t => (t.response!=="NA"));
   let score = lt.map(x => parseInt(x.response, 10)).reduce((x,y)=>(x+y),0);
-  return(score/lt.length);
+  score = "" + (score/lt.length).toPrecision(2) + (ltna.length == 0 ? "": " (" + ltna.length + " NA)");
+  return(score );
 };
 var calculScoresTest = function(td) {
   let lt = listeTests.filter(t =>((t.type!='consigne') && (t.type_data==td) && t.hasOwnProperty('response')));
