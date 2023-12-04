@@ -299,3 +299,13 @@ input:required:invalid, input:focus:invalid {
 .EEAS {
   background-color: #e0f0ff;
 }
+.ABC {
+  background-color: #e7f8ee;
+}
+.Merci {
+  background-color: #ffe0f0;
+}
+footer {
+  margin-top: 50px;
+  font-size: 0.5em;
+}
