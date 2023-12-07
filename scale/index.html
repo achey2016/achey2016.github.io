@@ -6,8 +6,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
   <title>Test</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="apple-touch-icon.png" type="image/png" />
   <link rel="stylesheet" media="screen" href="Style.css" type="text/css" />
+  <link rel="preload" href="echelle.svg" as="image" type="image/svg+xml" />
   <script type="text/javascript" src="scale.js"> </script>
   
 </head>
@@ -29,10 +32,10 @@
     <input type="button" name="terminer" id="terminer" value="terminer" />
   </div>
   <div id="testscreen" hidden>
+    <div class="sliderq" id="question">Avez-vous confiance ?</div>
     <div class="slidecontainer">
-      <p class="sliderq" id="question">Avez-vous confiance ?</p>
-      <span class="sliderl" id="reponse0">Pas du tout</span>
-      <span class="sliderr" id="reponse10">Tout à fait</span>
+      <div class="sliderl" id="reponse0">Pas du tout</div>
+      <div class="sliderr" id="reponse10">Tout à fait</div>
       <div class="sliderbg">
         <input type="range" min="0" max="10" value="5" class="slider" id="scale">
       </div>

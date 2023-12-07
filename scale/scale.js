@@ -194,16 +194,17 @@ var gonext = function(e) {
     document.getElementById("NA").checked = false;
     document.getElementById("question").innerHTML = listeTests[currentTest].question;
     if (listeTests[currentTest].type=="consigne") {
-      // pour les consignes, masquer l'échelle et aligner à gauche sauf pour le titre
+      // pour les consignes, masquer l'échelle 
       scalevisibility("hidden");
       document.getElementById("OKnext").disabled = false;
       if (listeTests[currentTest].sous_echelle=="Titre") {
-        document.getElementById("question").className = "sliderq";
+        // titre centré
+        document.getElementById("question").className = "slidert";
       } else {
-        document.getElementById("question").className = "sliderc";
+        document.getElementById("question").className = "sliderq";
       }
     } else {
-      // pour les questions, montrer l'échelle et centrer la question
+      // pour les questions, montrer l'échelle 
       scalevisibility("visible");
       document.getElementById("OKnext").disabled = true;
       document.getElementById("question").className = "sliderq";

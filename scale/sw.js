@@ -1,6 +1,6 @@
 console.log('[Service Worker] registering');
 appName = 'scale';
-appVersion = '0.3.8';
+appVersion = '0.3.9';
 cacheName =  appName + '-v' + appVersion ;
 alllist = [ 'Style.css',
             'index.html',
