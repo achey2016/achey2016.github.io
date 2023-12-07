@@ -255,6 +255,11 @@ input:required:invalid, input:focus:invalid {
   font-size: 0.9em;
   text-align: left;
 }
+@media (min-height:1360px), (min-width:1360px) {
+  .sliderq {
+    font-size: 2.5em;
+  }
+}
 .sliderq {
   font-size: 2em;
   text-align: left;
