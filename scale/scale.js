@@ -96,11 +96,17 @@ var calculScoresTest = function(td) {
   let lt = listeTests.filter(t =>((t.type!='consigne') && (t.type_data==td) && t.hasOwnProperty('response')));
   let se = Array.from(new Set(lt.filter(t=>(t.type!='consigne')).map(t => (t.sous_echelle))));
   let score = se.reduce((x,y) => (Object.assign(x,Object.fromEntries([[y,calculScoresSousEchelle(lt,y)]]))),{});
+  let ltna = lt.filter(t => (t.response==="NA")) ;
+  lt = lt.filter(t => (t.response!=="NA"));
+  let scoretest = lt.map(x => parseInt(x.response, 10)).reduce((x,y)=>(x+y),0);
+  scoretest = "" + (scoretest/lt.length).toPrecision(2) + (ltna.length == 0 ? "": " (" + ltna.length + " NA)");
+  score.score = scoretest;
   return(score);
 };
 var strScores = function(td) {
   score = calculScoresTest(td);
-  str = "<h3>" + td + "</h3><ul>" ;
+  str = "<h3>" + td + " : " + score.score + "</h3><ul>" ;
+  delete score.score;
   str += Object.entries(score).map(x=>('<li>' + x[0] + ' : ' + x[1] + '<br>')).reduce((x,y)=>(x+y));
   str += "</ul>";
   return(str);
