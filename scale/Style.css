@@ -22,7 +22,6 @@ button, input[type="submit"], input[type="button"] {
   background-color: gold;
   color: black;
   padding: 4%;
-  accent-color: transparent;
 }
 button:active, input[type="submit"]:active, input[type="button"]:active {
   color: black;
