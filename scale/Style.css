@@ -24,8 +24,13 @@ button, input[type="submit"], input[type="button"] {
   padding: 4%;
   accent-color: transparent;
 }
+button:active, input[type="submit"]:active, input[type="button"]:active {
+  color: black;
+  background-color: gold;
+}
 button:disabled, input[type="submit"]:disabled, input[type="button"]:disabled {
   color: #3c3c434d;
+  background-color: gold;
 }
 button:nth-of-type(2n+1) {
   background-color: chartreuse;
