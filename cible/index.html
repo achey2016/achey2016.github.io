@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <title>Cible</title>
+  <link rel="icon" href="Cible.png">
+  <link rel="shortcut icon" href="Cible.png" type="image/png" />
+  <link rel="apple-touch-icon" href="Cible.png" type="image/png" />
+  <link rel="stylesheet" media="screen" href="Style.css" type="text/css" />
+  <link rel="stylesheet" media="print" href="Style.css" type="text/css" />
+  <script type="text/javascript" src="cible.js"> </script>
+  
+</head>
+<body>
+  <table id="tab_title">
+    <tr>
+      <td><img id="title_icon" src="Cible.png"></td>
+      <td>
+        <table>
+          <tr><td><h1 id="title">Cible</h1></td></tr>
+          <tr><td><span id="version_info">version :  NA</span></td></tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+  <form id="infosuj" >
+      <!-- Code Participant : n°inclusion - initiales: de 000AA à 999ZZ -->
+      <fieldset>
+        <legend>
+          <h3>Code Participant : <span id="last_participant" hidden>000NP</span></h2>
+        </legend>
+        <input  type="text" 
+                id="code_participant" 
+                name="code_participant" 
+                pattern="[0-9]{3}[A-Za-z]{2}" 
+                size="7" 
+                inputmode="numeric"
+                title="Code participant en 3 chiffres et 2 lettres (Initiales participant)" 
+                aria-label="3 chiffres - 2 lettres" 
+                value="" 
+                placeholder="000NP"
+                required>
+        <label for="Participant">&nbsp;</label> 
+      </fieldset>
+      <!-- n° session -->
+      <fieldset>
+        <label for="session">n° session :</label>
+        <input type="text" id="session" name="session" pattern="[0-9]*" inputmode="numeric" size="5" value="1" required>
+      </fieldset>
+          
+      <!-- Type de session -->
+      <fieldset>
+        <legend> <h3> Type de session</h3></legend>
+        <input type="radio" id="type_session_pretest" name="type_session" value="pretest" checked/>
+        <label for="pretest">prétest</label>
+        <input type="radio" id="type_session_imagerie" name="type_session" value="imagerie" />
+        <label for="imagerie">imagerie</label>
+        <input type="radio" id="type_session_posttest" name="type_session" value="posttest" />
+        <label for="posttest">post-test</label>
+      </fieldset>
+          
+      <!-- nombre de répétitions -->
+      <fieldset>
+        <label for="repetition">nombre de répétitions :</label>
+        <input type="text" id="repetition" name="repetition" pattern="[0-9]*" inputmode="numeric" size="5" value="50" required>
+          
+      <!-- délai en secondes pour l'imagerie -->
+        <br>
+        <label for="delai">délai pour l'imagerie :</label>
+        <input type="text" id="delai" name="delai" pattern="[0-9]*" inputmode="numeric" size="5" value="10" required>
+        secondes
+      </fieldset>
+      
+      <!-- Taille des cibles avec un défaut en fonction du n°de session -->
+      <fieldset>
+        <legend> <h3> Cible</h3></legend>
+        <label for="diametre_cible">Diamètre</label>
+        <input type="text" id="diametre_cible" name="diametre_cible" pattern="[0-9]*" inputmode="numeric" size="5" value="100" required> pixels
+      </fieldset>
+
+      <!-- Distances rouge/orange/vert pour les feedback -->
+      <fieldset>
+        <legend> <h3>Distance au centre de la cible</h3></legend>
+        <label for="distance_vert">En vert &lt;=</label>
+        <input type="text" id="distance_vert" name="distance_vert" pattern="[0-9]*" inputmode="numeric" size="5" value="200" required> pixels
+        <br>
+        <label for="distance_orange">En orange &lt;=</label>
+        <input type="text" id="distance_orange" name="distance_orange" pattern="[0-9]*" inputmode="numeric" size="5" value="400" required> pixels
+        <br>
+        <label for="distance_rouge">En rouge &lt;=</label>
+        <input type="text" id="distance_rouge" name="distance_rouge" pattern="[0-9]*" inputmode="numeric" size="5" value="1400" required> pixels
+      </fieldset>
+    </fieldset>
+      <!-- Je veux un form mais pas quitter la page car je n'ai pas de serveur -->
+      <input id="prevent_submit" type="number" value="" hidden required>
+      <input id="do_not_submit" type="submit" hidden>
+      <!-- FINI -->
+      <fieldset class="btnlink bottomright" disabled>
+        <input id="validation" name="validation" type="checkbox" autocomplete="off" required>
+        <label for="validation">Valider</label>
+      </fieldset>
+      <svg viewBox="0 0 1080 790" xmlns="http://www.w3.org/2000/svg">
+        <circle id="modele_rond_rouge"   fill='#ff0000' cx="810" cy="395" r="400" />
+        <circle id="modele_rond_orange"  fill='#ffaf00' cx="810" cy="395" r="200" />
+        <circle id="modele_rond_vert"    fill='#009f00' cx="810" cy="395" r="100" />
+        <circle id="modele_centre_cible" fill='#000000' cx="810" cy="395" r="50" />
+      </svg>
+  </form>
+  </div>
+  <div id="cibles" hidden>
+    <h2>Touchez n'importe où pour faire apparaître la première cible</h2>
+    <svg viewBox="0 0 1080 790" xmlns="http://www.w3.org/2000/svg">
+      <rect id="bg_cibles" width="100%" height="100%" fill="#0000"/>
+      <circle id="centre_cible" fill='#0000' cx="540" cy="395" r="50" />
+    </svg>
+  </div>
+  <div id="pausescreen" hidden>
+    <h2>PAUSE</h2>
+    <input type="button" name="reprendre" id="reprendre" value="reprendre" />
+    <input type="button" name="terminer" id="terminer" value="terminer" />
+  </div>
+  <div id="endscreen" hidden>
+    <div class="hide_printing">
+      <h2>Résultats</h2>
+      <a href="data:text/plain;charset=utf-8,%EF%BB%BF" id="allCSV" download="testdata.csv" class="btnlink">
+        Export CSV</a>
+      <a id="nextsuj" href="index.html" class="btnlink">Redémarrer</a>
+      <button id="printbtn" class="btnlink">Imprimer</button>
+      <a href="data:application/json;charset=utf-8," id="cjtJSON" download="testdata.json" class="btnlink">
+        Export JSON</a>
+    </div>
+    <h2 id="recap">Récapitulatif : </h2>
+    <table id="trialtable" border="0">
+      <tr>
+        <th>question</th>
+        <th>réponse</th>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

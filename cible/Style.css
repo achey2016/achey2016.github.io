@@ -1,0 +1,217 @@
+/* Feuille de style pour les tests */
+body {
+  /* couleur d'arrière-plan */
+  background-color: #ddf;
+  /* taille de police (coefficient multiplicateur) */
+  font-size: 1.5em;
+}
+h1, td {
+  /* titre et sous-titres centré */
+  text-align: center;
+}
+/* cibles plein écran zoom et défilement interdits svg en arrière-plan */
+#cibles, #cibles svg, #infosuj, #infosuj svg {
+  position: fixed;
+  top:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  z-index: -1;
+}
+#infosuj {
+  padding-top: 22%;
+  height: 78%;
+}
+#cibles h2 {
+  position: fixed;
+  text-align: center;
+  top:0;
+  right:0;
+  width: 100%;
+  height: 20%;
+}
+/* Table de titre */
+#tab_title {
+  width: 100%;
+  text-align: center;
+}
+#tab_title td:first-child {
+  width: 20%;
+}
+#title_icon {
+  width: 100%;
+  min-height: 100%;
+}
+#tab_title table {
+  /* sous-table à aligner comme du texte */
+  display: inline-table;
+}
+/* Compteurs d'erreurs */
+.count {
+  background-color: darkgoldenrod;
+  color: white;
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 0 5px;
+  margin-right: 0.5em;
+  border: 1px solid darkgoldenrod;
+  border-radius: 50%;
+  position: relative;
+  top: -0.1em;
+} 
+/* Code participant */
+#code_participant {
+  font-size: x-large;
+  text-transform: uppercase;
+  width: 5em;
+}
+/* label Participant stylé comme un h2 et décalé à gauche */
+label[for="Participant"] {
+  font-size: 1.5em;
+}
+#code_participant:disabled {
+  display: none;
+}
+#code_participant:disabled ~ label[for="Participant"] {
+  display: none;
+}
+/* Aide sur gabarit si invalide (pas d'after pour les input) */
+#code_participant:invalid ~ label[for="Participant"]::after {
+  content: "3 chiffres - 2 lettres : n°inclusion - initiales";
+  color: gray;
+  display: block;  
+  font-size: small;
+}
+/* Indication des éléments enregistrés 📩 💾 ✅ ✔ */
+.stored#code_participant:valid ~ label[for="Participant"]::before {
+  content: "✅ ";
+}
+/* fieldset sans bordures */
+fieldset {
+  border:0;
+  max-width: 100%;
+}
+/* Masquer les fieldset disabled sauf ceux à faire plus tard*/
+fieldset:disabled {
+  visibility: collapse;
+  display: none;
+}
+fieldset.dolater:disabled {
+  visibility: visible;
+  display: block;
+  color: gray;
+}
+/* dialog non implémenté dans iOS 14.4 */
+fieldset.dialog {
+  color: white;
+  font-size: 2em;
+  position: fixed;
+  width:100%;
+  height:100%;
+  top: 0;
+  background-image: linear-gradient(
+    0deg,
+    #f0c56eff,
+    #000000ee,
+    #f0c56eff
+  );
+  opacity: 0.85;
+}
+fieldset.dialog button {
+    width: 20%;
+    height: 10%;
+    font-size: 1em;
+    position: absolute ;
+    left:35%;
+}
+
+/* Bouton pour valider */
+#validation {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.bottomright {
+  position:fixed;
+  bottom: 5%;
+  right: 5%;
+}
+.btnlink {
+  border-style: solid;
+  border: 2pt solid blue;
+  background-color: white;
+  color: blue;
+  padding: 2vh;
+  border-radius: 1vh;
+  font-size: 2em;
+  box-sizing: border-box;
+  /* margin: 2vh; */
+  display: inline-block;
+  text-decoration: none;
+}
+.btnhide {
+  display:none;
+}
+
+.copyright {
+  margin-top: 50px;
+  font-size: .5em;
+  color: tan;
+  float: right;
+}
+.copyright > a {
+  color: brown;
+}
+.copyright {
+  display:none;
+}
+#trialtable tr:nth-child(2n), .tab_r tr:nth-child(2n) {
+  background-color: lavender;
+}
+/* Feedback invalide à remplir */
+input:required:invalid, input:focus:invalid {
+  border-color: red;
+  border-width: 3px;
+  background-color: yellow;
+  color: darkred;
+  font-weight: bold;
+  font-family: Noteworthy;
+}
+select:invalid {
+  background-color: orangered;
+}
+footer {
+  margin-top: 50px;
+  font-size: 0.5em;
+}
+
+.tag {
+  font-size: 0.7em;
+  font-family: monospace;
+  margin-left: 5%;
+}
+@media print {
+  @page {
+    size: A4 portrait;
+  }
+  .hide_printing {
+    display: none;
+  }
+  body {
+    /* couleur d'arrière-plan */
+    background-color: white;
+  }
+  #trialtable tr:nth-child(2n) {
+    background-color: lavender;
+  }
+  table {
+    break-inside: avoid;
+  }
+  tr {
+    break-inside: avoid;
+  }
+  h1, h2, h3, h4, thead {
+    break-after: avoid-region;
+  }
+}
