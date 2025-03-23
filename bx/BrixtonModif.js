@@ -299,6 +299,10 @@ var endTest = function(e) {
     // retirer le graphique en l'absence de données
     document.getElementById("error_rate").parentElement.remove();
   }
+  // ajuster la langue si l'iPad utilise une autre langue que le français
+  if (navigator.language != 'fr-FR') {
+    ajusteLangue('en-US');
+  }
 };
 
 // en cas d'erreur de chargement
@@ -351,10 +355,12 @@ var reprendre = function() {
 
 // Mettre en pause (si interruption prolongee)
 var pause = function() {
-  document.getElementById("reprendre").addEventListener('click', reprendre, {once: true, capture: true});
-  document.getElementById("terminer").addEventListener('click', endTest, {once: true, capture: true});
-  document.getElementById("testscreen").hidden = true;
-  document.getElementById("pausescreen").hidden = false;
+  if ( !document.getElementById("testscreen").hidden ) {
+    document.getElementById("reprendre").addEventListener('click', reprendre, {once: true, capture: true});
+    document.getElementById("terminer").addEventListener('click', endTest, {once: true, capture: true});
+    document.getElementById("testscreen").hidden = true;
+    document.getElementById("pausescreen").hidden = false;
+  }
 };
 
 // Verifier que le sujet est bien actif (absence d'interruption prolongee)
@@ -405,7 +411,86 @@ var testeAdressSousTest = function(adress) {
         document.getElementById("title").insertAdjacentText("afterend", "Absence de contrôle du cache\n");
     }
 };
-
+// Ajustements pour l'anglais
+var ajusteLangue = function(lang) {
+  // liste des traductions avec un sélecteur CSS aussi précis que possible dans where
+  var traduc = [ { 
+    'where' : '#title',
+    'fr-FR': 'Brixton Modifié',
+    'en-US': 'Modified Brixton'
+  }, {
+    'where' : '#infosuj h2:nth-child(2)',
+    'fr-FR': 'Code participant :',
+    'en-US': 'Participant code:'
+  }, {
+    'where' : '#infosuj label:nth-child(1)',
+    'fr-FR': 'Code participant (5 caractères) :',
+    'en-US': 'Participant code (5 characters):'
+  }, {
+    'where' : '#endscreen h2:nth-child(1)',
+    'fr-FR': 'Résultats',
+    'en-US': 'Results'
+  }, {
+    'where' : '#score',
+    'fr-FR': 'Abandons :',
+    'en-US': 'Moves:'
+  }, {
+    'where' : '#score',
+    'fr-FR': 'Persévérances :',
+    'en-US': 'Perseverations:'
+  }, {
+    'where' : '#score',
+    'fr-FR': 'Début :',
+    'en-US': 'Start:'
+  }, {
+    'where' : '#score',
+    'fr-FR': 'Fin :',
+    'en-US': 'End:'
+  }, {
+    'where' : '#score',
+    'fr-FR': 'Durée :',
+    'en-US': 'Duration:'
+  }, {
+    'where' : '#allCSV',
+    'fr-FR': 'Enregistrer',
+    'en-US': 'Save'
+  }, {
+    'where' : '#nextsuj',
+    'fr-FR': 'Nouveau test',
+    'en-US': 'New test'
+  }, {
+    'where' : '#trialtable > thead > tr > th:nth-child(7)',
+    'fr-FR': 'debut',
+    'en-US': 'start'
+  }, {
+    'where' : '#trialtable > thead > tr > th:nth-child(8)',
+    'fr-FR': 'fin',
+    'en-US': 'end'
+  }, {
+    'where' : '#trialtable > thead > tr > th:nth-child(9)',
+    'fr-FR': 'essais',
+    'en-US': 'attempts'
+  }, {
+    'where' : '#reprendre',
+    'fr-FR': 'reprendre',
+    'en-US': 'resume'
+  }, {
+    'where' : '#terminer',
+    'fr-FR': 'terminer',
+    'en-US': 'terminate'
+  }, {
+    'where' : '#cjtJSON',
+    'fr-FR': 'debug',
+    'en-US': ' '
+  }];
+  // pour chaque traduction disponible, remplacer chaque occurence du texte original en français par sa traduction
+  for (t of traduc) { 
+    document.querySelectorAll(t.where)
+            .forEach(e => e.innerHTML = e.innerHTML.replaceAll(t['fr-FR'],t[lang]));
+    document.querySelectorAll(t.where)
+            .forEach(e => ((e.innerHTML==="") && e.value) && (e.value = e.value.replaceAll(t['fr-FR'],t[lang])));
+  }
+};
 /*
  * Tests infos codees dans l'adresse et le protocole
  */
@@ -415,8 +500,33 @@ var testeAdress = function() {
 
     testeAdressSousTest(adress);
 };
+// Pause sur passage en arrière-plan
+var onVisibilityChange = function(e) {
+  var now = new Date();
+  var cjt = getCjtStorage();
+  if (document.visibilityState === 'hidden') {
+    if (currentTest !== -1) {
+      // Le participant a commencé à répondre, logger la pause
+      if (!cjt.log) {
+        cjt.log = [];
+      }
+      cjt.log.push({'pause': now});
+    }
+  } else {
+    // VisibilityState != hidden : on reprend
+    if (currentTest !== -1) {
+       // Le participant a commencé à répondre, logger la reprise
+      if (!cjt.log) {
+        cjt.log = [];
+      }
+      cjt.log.push({'reprise': now});
+      pause();
+    }
+  }
+};
 // s'il n'y a pas de mise a jour, charger le test
 var onCacheOK = function() {
+
   // si le sous-test est specifie, adapter la liste des tests
   testeAdress();
 
@@ -428,6 +538,12 @@ var onCacheOK = function() {
       document.getElementById("c" + i).addEventListener('click', setinfotrial, true);
     }
   }
+  // ajuster la langue si l'iPad utilise une autre langue que le français
+  if (navigator.language != 'fr-FR') {
+    ajusteLangue('en-US');
+  }
+  // pause sur application en arrière-plan 
+  document.addEventListener("visibilitychange", onVisibilityChange);
 }
 // log message from serviceWorker
 var logMsg = function(evt) {
