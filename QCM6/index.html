@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <title>QCM6</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="apple-touch-icon.png" type="image/png" />
+  <link rel="stylesheet" media="screen" href="Style.css" type="text/css" />
+  <script type="text/javascript" src="qcm6.js"> </script>
+  
+</head>
+<!-- Testé sur iPad dim 1080x790 ou 790x1080 -->
+<body>
+  <h1 id="title">QCM</h1>
+  <div id="infosuj" >
+      <h2>Code participant :</h2>
+      <form action="" method="get" onsubmit="commencer(); return(false)">
+      <label for="Participant">Code participant (5 caractères) :</label>
+      <input type="text" id="participant_code" name="participant_code" pattern="[A-Za-z0-9]{5}" size="5" title="Code participant en 5 caractères" value=""><br><br>
+      <input type="submit" value="Commencer">
+      </form>
+      <h2> Questionnaire : </h2>
+      <input type="file" value="confiance.csv" accept="text/csv" id="selectQ">
+  </div>
+  <div id="pausescreen" hidden>
+    <h2 id="pausetxt">PAUSE</h2>
+    <input type="button" name="reprendre" id="reprendre" value="reprendre" />
+    <input type="button" name="terminer" id="terminer" value="terminer" />
+  </div>
+  <div id="testscreen" hidden>
+    <div id="question">b</div>
+    <div id="option_1" class="option">1</div>
+    <div id="option_2" class="option">2</div>
+    <div id="option_3" class="option">3</div>
+    <div id="option_4" class="option">4</div>
+    <div id="option_5" class="option">5</div>
+    <div id="option_6" class="option">6</div>
+    <div class="OKbox">
+      <input type="submit" value="Suivant" id="OKnext">
+    </div>
+    
+    
+  </div>
+  <div id="endscreen" hidden>
+    <h2>Résultats</h2>
+    <a href="data:text/plain;charset=utf-8,%EF%BB%BF" id="allCSV" download="testdata.csv" class="btnlink">
+      Enregistrer</a>
+    <a id="nextsuj" href="index.html" class="btnlink">Nouveau test</a>
+    <h2 id="score">Score : </h2>
+    <table id="trialtable" border="0">
+      <tr>
+        <th>trial</th>
+        <th>response</th>
+      </tr>
+    </table>
+    <a href="data:text/plain;charset=utf-8,%EF%BB%BF" id="cjtJSON" download="testdata.json">
+      debug</a>
+  </div>
+</body>
+</html>

@@ -8,6 +8,9 @@ Test avec une cible:
 Test avec une échelle : 
 - <https://achey2016.github.io/scale/>
 
+QCM à 6 questions : 
+- <https://achey2016.github.io/QCM6/>
+
 Test de brixton modifié : 
 - <https://achey2016.github.io/bx/>
 

@@ -1,0 +1,211 @@
+/* Feuille de style pour les tests */
+body {
+  /* couleur d'arrière-plan */
+  background-color: #f0f0f0;
+}
+h1 {
+  /* titre centré */
+  text-align: center;
+}
+#pausetxt {
+  text-align: center;
+  font-size: 3em;
+  margin: 200px;
+}
+button, input[type="submit"], input[type="button"] {
+  border-radius: 20px;
+  border-width: 3px;
+  margin-left: 6%;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: sans-serif;
+  background-color: #e0e0e0;
+  color: black;
+  padding: 4%;
+}
+button:active, input[type="submit"]:active, input[type="button"]:active {
+  color: black;
+  background-color: #e0e0e0;
+}
+button:disabled, input[type="submit"]:disabled, input[type="button"]:disabled {
+  color: #3c3c434d;
+  background-color: #e0e0e0;
+}
+button:nth-of-type(2n+1) {
+  background-color: chartreuse;
+}
+.hidden {
+  position: absolute;
+  top: -99999px;
+  left: -9999px;
+  display: none;
+}
+#testscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+}
+.center {
+  position: absolute;
+  right: 40%;
+  top: 35%;
+  width: 20%;
+  height: 30%;
+  text-align: center;
+}
+.btnlink {
+  border-style: solid;
+  border: 2pt solid blue;
+  background-color: white;
+  padding: 2vh;
+  border-radius: 1vh;
+  font-size: 2em;
+  box-sizing: border-box;
+  /* margin: 2vh; */
+  display: inline-block;
+}
+table {
+  text-align: center;
+  width: 100%;
+}
+thead {
+  background-color: #afafaf;
+}
+tbody > tr:nth-of-type(2n+1) {
+  background-color:white;
+}
+#cjtJSON, .copyright {
+  margin-top: 50px;
+  font-size: .5em;
+  color: tan;
+  float: right;
+}
+.copyright > a {
+  color: brown;
+}
+.copyright {
+  display:none;
+}
+
+input:required:invalid, input:focus:invalid {
+  border-color: red;
+  border-width: 3px;
+  background-color: mistyrose;
+  color: darkred;
+  font-weight: bold;
+}
+#participant_code {
+  font-size: x-large;
+  text-transform: uppercase;
+}
+.consigne {
+  position: fixed;
+  top:25%;
+  width: 80%;
+  left: 10%;
+}
+.miniconsigne {
+  position: fixed;
+  top:17%;
+  width: 90%;
+  left: 5%;
+}
+#question {
+  min-height: 10%;
+  height: 15%;
+	font-family: sans-serif;
+	font-weight: bold;
+  position: absolute;
+  top:0%;
+  left:30%;
+  width: 30%;
+  font-size: 2em;
+  text-align: center;
+  padding: 5%;
+}
+.OKbox {
+  min-height: 10%;
+  height: 15%;
+  position: absolute;
+  top:0%;
+  left:70%;
+  width: 20%;
+  padding: 5%;
+}
+.option {
+  min-height: 10%;
+  height: 15%;
+	font-family: sans-serif;
+	font-weight: bold;
+  width: 41%;
+  position: absolute;
+  text-align: center;
+  padding:5%;
+}
+.choisie {
+  text-decoration: underline;
+}
+#option_1 {
+  top:25%;
+  left:6%;
+}
+#option_2 {
+  top:25%;
+  right:6%;
+}
+#option_3 {
+  top:50%;
+  left:6%;
+}
+#option_4 {
+  top:50%;
+  right:6%;
+}
+#option_5 {
+  top:75%;
+  left:6%;
+}
+#option_6 {
+  top:75%;
+  right:6%;
+}
+
+@media (min-height:1360px), (min-width:1360px) {
+  .option {
+    font-size: 2.5em;
+  }
+}
+@media (max-height:1360px) and (max-width:1360px) {
+  .option {
+    font-size: 2em;
+  }
+}
+
+.Merci {
+  background-color: #ffe0f0;
+}
+footer {
+  margin-top: 50px;
+  font-size: 0.5em;
+}
+
+@media (orientation: portrait) {
+  body {
+    max-width: 74vh;
+    min-width: 72vh;
+    max-height: 138vw;
+    min-height: 136vw;
+  }
+}
+
+@media (orientation: landscape) {
+  body {
+    max-height: 74vh;
+    min-height: 72vh;
+    max-width: 138vw;
+    min-width: 136vw;
+  }
+}
