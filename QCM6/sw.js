@@ -1,6 +1,6 @@
 console.log('[Service Worker] registering');
 appName = 'qcm6';
-appVersion = '0.1.29';
+appVersion = '0.1.30';
 cacheName =  appName + '-v' + appVersion ;
 alllist = [ 'Style.css',
             'index.html',

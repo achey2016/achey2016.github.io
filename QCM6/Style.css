@@ -15,7 +15,7 @@ h1 {
 button, input[type="submit"], input[type="button"] {
   border-radius: 20px;
   border-width: 3px;
-  margin-left: 6%;
+  margin-left: 18%;
   font-size: 2em;
   font-weight: bold;
   font-family: sans-serif;
@@ -203,9 +203,9 @@ footer {
 
 @media (orientation: landscape) {
   body {
-    max-height: 74vh;
-    min-height: 72vh;
-    max-width: 138vw;
-    min-width: 136vw;
+    max-height: 74vw;
+    min-height: 72vw;
+    max-width: 138vh;
+    min-width: 136vh;
   }
 }
